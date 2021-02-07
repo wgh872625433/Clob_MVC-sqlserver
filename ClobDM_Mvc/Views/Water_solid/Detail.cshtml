@@ -1,0 +1,260 @@
+﻿
+@{
+    Layout = null;
+}
+
+@model List<ClobDM_Model.Water_solid>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <div class="pageContent">
+        <div class="pageFormContent" layouth="56">
+@foreach (var item in Model)
+{
+            <fieldset>
+                <legend>基本信息</legend>
+               
+                    <dl>
+                        <dt>
+                            <label>
+                                检测日期：
+                            </label>
+                        </dt>
+                        <dd>
+                            @item.WS_CheckTime
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>
+                            <label>
+                                进货数量(桶)：
+                            </label>
+                        </dt>
+                        <dd>
+                            @item.WS_InGoodNums
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>
+                            <label>
+                                抽测数量(桶)：
+                            </label>
+                        </dt>
+                        <dd>
+                            @item.WS_CheckGoodNums
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>
+                            <label>
+                                坩埚重：
+                            </label>
+                        </dt>
+                        <dd>
+                            @item.WS_CrucibleW
+                        </dd>
+
+                    </dl>
+
+                   
+                <dl>
+                    <dt>
+                        <label>
+                            拱前总重：
+                        </label>
+                    </dt>
+                    <dd>
+                        @item.WS_ArchFTW1
+                    </dd>
+
+                </dl>
+                <dl>
+                    <dt>
+                        <label>
+                            拱后总重：
+                        </label>
+                    </dt>
+                    <dd>
+                        @item.WS_ArchFTW2
+                    </dd>
+
+                </dl>
+                <dl>
+                    <dt>
+                        <label>
+                            含固量：
+                        </label>
+                    </dt>
+                    <dd>
+                        @item.WS_solid
+                    </dd>
+                </dl>
+
+                <dl>
+                    <dt>
+                        <label>
+                            平均值：
+                        </label>
+                    </dt>
+                    <dd>
+                        @item.WS_avg
+                    </dd>
+
+                </dl>
+
+                <dl>
+                    <dt>
+                        <label>
+                            PH值：
+                        </label>
+                    </dt>
+                    <dd>
+                        @item.WS_PH
+                    </dd>
+
+                </dl>
+
+
+                    <dl>
+                        <dt>
+                            <label>
+                                创建时间：
+                            </label>
+                        </dt>
+                        <dd>
+                            @item.CreateTime.ToString("yyyy-MM-dd HH:mm:ss")
+                        </dd>
+                    </dl>
+               
+            </fieldset>
+            <fieldset>
+                <legend>厂家信息</legend>
+                <dl>
+                    <dt>
+                        <label>
+                           含固量：
+                        </label>
+                    </dt>
+                    <dd>
+                        @item.WS_Fsolid
+                    </dd>
+
+                </dl>
+
+                <dl>
+                    <dt>
+                        <label>
+                           PH值：
+                        </label>
+                    </dt>
+                    <dd>
+                        @item.WS_FPH
+                    </dd>
+
+                </dl>
+                <dl>
+                    <dt>
+                        <label>
+                          检测粘度：
+                        </label>
+                    </dt>
+                    <dd>
+                        @item.WS_FCheckS
+                    </dd>
+
+                </dl>
+                <dl>
+                    <dt>
+                        <label>
+                            生产日期：
+                        </label>
+                    </dt>
+                    <dd>
+                        @item.WS_AddTime
+                    </dd>
+
+                </dl>
+
+                <dl>
+                    <dt>
+                        <label>
+                            生产厂家：
+                        </label>
+                    </dt>
+                    <dd>
+                        @item.WS_FName
+                    </dd>
+
+                </dl>
+
+                <dl>
+                    <dt>
+                        <label>
+                            合格与否：
+                        </label>
+                    </dt>
+                    <dd>
+                        @item.WS_FIsPass
+                    </dd>
+
+                </dl>
+
+                <dl>
+                    <dt>
+                        <label>
+                            检测员：
+                        </label>
+                    </dt>
+                    <dd>
+                        @(item.WS_FCheckUID)
+                    </dd>
+
+                </dl>
+
+                <dl>
+                    <dt>
+                        <label>
+                            各月份合格率情况：
+                        </label>
+                    </dt>
+                    <dd>
+                        @(item.WS_FPassMsg)
+                    </dd>
+
+                </dl>
+
+                <dl>
+                    <dt>
+                        <label>
+                            备注：
+                        </label>
+                    </dt>
+                    <dd>
+                        @(item.WS_FRemark)
+                    </dd>
+
+                </dl>
+
+            </fieldset>
+                }
+</div>
+        <div class="formBar">
+            <ul>
+                <li>
+                    <div class="button">
+                        <div class="buttonContent">
+                            <button type="button" class="close">
+                                关闭
+                            </button>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
+

@@ -1,0 +1,240 @@
+﻿
+@{
+    Layout = null;
+}
+
+@model List<ClobDM_Model.PaperBox_check>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <div class="pageContent">
+        <div class="pageFormContent" layouth="56">
+@foreach (var item in Model)
+{
+            <fieldset>
+                <legend>基本信息</legend>
+            
+                    <dl>
+                        <dt>
+                            <label>
+                                检测日期：
+                            </label>
+                        </dt>
+                        <dd>
+                            @item.PBC_CheckTime
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>
+                            <label>
+                                规格：
+                            </label>
+                        </dt>
+                        <dd>
+                            @item.PBC_Stand
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>
+                            <label>
+                                内径：
+                            </label>
+                        </dt>
+                        <dd>
+                            @item.PBC_mm
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>
+                            <label>
+                                壁厚：
+                            </label>
+                        </dt>
+                        <dd>
+                            @item.PBC_mm1
+                        </dd>
+
+                    </dl>
+                    <dl>
+                        <dt>
+                            <label>
+                                长度：
+                            </label>
+                        </dt>
+                        <dd>
+                            @item.PBC_mm2
+                        </dd>
+                    </dl>
+
+                <dl>
+                    <dt>
+                        <label>
+                            压溃力平均值：
+                        </label>
+                    </dt>
+                    <dd>
+                        @item.PBC_PressAvg
+                    </dd>
+                </dl>
+                <dl>
+                    <dt>
+                        <label>
+                            压溃力最小值：
+                        </label>
+                    </dt>
+                    <dd>
+                        @item.PBC_PressMin
+                    </dd>
+                </dl>
+                <dl>
+                    <dt>
+                        <label>
+                            压溃力最大值：
+                        </label>
+                    </dt>
+                    <dd>
+                        @item.PBC_PressMax
+                    </dd>
+                </dl>
+            </fieldset>
+            <fieldset>
+                <legend>厂家信息</legend>
+                <dl>
+                    <dt>
+                        <label>
+                            内径：
+                        </label>
+                    </dt>
+                    <dd>
+                        @item.PBC_Fmm
+                    </dd>
+                </dl>
+
+                <dl>
+                    <dt>
+                        <label>
+                            壁厚(厂家)：
+                        </label>
+                    </dt>
+                    <dd>
+                        @item.PBC_Fmm1
+                    </dd>
+                </dl>
+
+                <dl>
+                    <dt>
+                        <label>
+                            长度：
+                        </label>
+                    </dt>
+                    <dd>
+                        @item.PBC_Fmm2
+                    </dd>
+                </dl>
+                <dl>
+                    <dt>
+                        <label>
+                            压溃力：
+                        </label>
+                    </dt>
+                    <dd>
+                        @item.PBC_FPressP
+                    </dd>
+                </dl>
+                <dl>
+                    <dt>
+                        <label>
+                            进货数量：
+                        </label>
+                    </dt>
+                    <dd>
+                        @item.PBC_FInGoodNums
+                    </dd>
+                </dl>
+                <dl>
+                    <dt>
+                        <label>
+                            抽测数量：
+                        </label>
+                    </dt>
+                    <dd>
+                        @item.PBC_FCheckGoodNums
+                    </dd>
+                </dl>
+                <dl>
+                    <dt>
+                        <label>
+                            生产厂家：
+                        </label>
+                    </dt>
+                    <dd>
+                        @item.PBC_FName
+                    </dd>
+                </dl>
+                <dl>
+                    <dt>
+                        <label>
+                            质量情况：
+                        </label>
+                    </dt>
+                    <dd>
+                        @item.PBC_FQualityMsg
+                    </dd>
+                </dl>
+
+                <dl>
+                    <dt>
+                        <label>
+                            测试人：
+                        </label>
+                    </dt>
+                    <dd>
+                        @item.PBC_FCheckUID
+                    </dd>
+                </dl>
+                <dl>
+                    <dt>
+                        <label>
+                            备注：
+                        </label>
+                    </dt>
+                    <dd>
+                        @item.PBC_FRemark
+                    </dd>
+                </dl>
+
+                <dl>
+                    <dt>
+                        <label>
+                            各月份合格率情况)：
+                        </label>
+                    </dt>
+                    <dd>
+                        @item.PBC_FIsPassMsg
+                    </dd>
+                </dl>
+
+
+            </fieldset>
+                }
+        </div>
+        <div class="formBar">
+            <ul>
+                <li>
+                    <div class="button">
+                        <div class="buttonContent">
+                            <button type="button" class="close">
+                                关闭
+                            </button>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
+

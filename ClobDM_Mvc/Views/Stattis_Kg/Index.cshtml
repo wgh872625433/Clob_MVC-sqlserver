@@ -1,0 +1,174 @@
+﻿
+@{
+    Layout = null;
+}
+
+@model List<ClobDM_Model.Stattis_Kg>
+
+<html>
+<head>
+    <title>丙烯酸</title>
+</head>
+<body>
+    <form id="pagerForm" method="post" action="@Url.Action("Index")">
+        <input type="hidden" name="pageNum" value="@ViewData["pageIndex"]" />
+        <input type="hidden" name="numPerPage" value="@ViewData["pageSize"]" />
+    </form>
+    <div class="pageHeader">
+        <form onsubmit="return navTabSearch(this);" action="@Url.Action("Index")" method="post">
+            <div class="searchBar">
+                <ul class="searchContent">
+                    <li>
+                        <label>
+                            产品品名：
+                        </label>
+                        <input name="sk_name" type="text" value="@ViewData["sk_name"]" />
+                    </li>
+                </ul>
+                <div class="subBar">
+                    <ul>
+                        <li>
+                            <div class="buttonActive">
+                                <div class="buttonContent">
+                                    <button type="submit">
+                                        检索
+                                    </button>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="pageContent">
+        <div class="panelBar">
+            <ul class="toolBar">
+                <li><a class="add" href="/Stattis_Kg/Add" mask="false" width="1000" height="550" target="dialog" rel="AddStattis_Kg"><span>添加克重厚度</span></a></li>
+                @*<li>
+                    <a class="icon" onclick="Acroleic_acid.ExportExcel()"><span>导出查询数据</span></a>
+                </li>*@
+                <li class="line">line</li>
+            </ul>
+        </div>
+        <table class="table" width="100%" layouth="138">
+            <thead>
+                <tr>
+                    <th width="40">
+                        <input type="checkbox" group="ids" class="checkboxCtrl">
+                    </th>
+                    <th>
+                        编号
+                    </th>
+                    <th>
+                        生产日期
+                    </th>
+                    <th>
+                        产品品名
+                    </th>
+                    <th>
+                        卷重
+                    </th>
+                    <th>
+                        卷号
+                    </th>
+                    <th>
+                        卷长
+                    </th>
+                    <th>
+                        幅宽
+                    </th>
+                    <th>
+                        幅数
+                    </th>
+                    <th>
+                        实验克重
+                    </th>
+                    <th>
+                        克重均值
+                    </th>
+                    <th>
+                        克度cv
+                    </th>
+                    <th>
+                        厚度均值
+                    </th>
+                    <th>
+                        厚度cv
+                    </th>
+                    <th>
+                        厚度最小
+                    </th>
+                    <th>
+                        厚度最大
+                    </th>
+
+                    <th>
+                        创建时间
+                    </th>
+                    <th width="80">
+                        操作
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            <input name="ids" type="checkbox" value="@item.ID" />
+                        </td>
+                        <td>@item.ID</td>
+                        <td>@Convert.ToDateTime(item.sk_addTime).ToString("yyyy-MM-dd") </td>
+                        <td>@item.sk_name</td>
+                        <td>@item.sk_juanW</td>
+                        <td>@item.sk_juanH</td>
+                        <td>@item.sk_juanC</td>
+                        <td>@item.sk_rangw</td>
+                        <td>@item.sk_rangnum</td>
+                        <td>@item.sk_clobkgw</td>
+                        <td>@item.sk_kgavg</td>
+                        <td>
+                            @item.sk_kgCV
+                        </td>
+                        <td>
+                            @item.sk_kghd
+                        </td>
+                        <td>
+                           @item.sk_hdCV
+                        </td>
+                        <td>
+                          @item.sk_hdMin
+                        </td>
+                        <td>
+                           @item.sk_hdMax
+                        </td>
+                        <td>@item.CreateTime</td>
+                        <td width="80">
+                            <a title="查看" target="dialog" href="/Stattis_Kg/Detail?OID=@item.ID" mask="false" width="1000" height="550" class="btnInfo">详情</a>
+                        </td>
+
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <div class="panelBar">
+            <div class="pages">
+                <span>每页20条，共 @ViewData["recordCount"] 条</span>
+            </div>
+            <div class="pagination" targettype="navTab" totalcount="@ViewData["recordCount"]" numperpage="@ViewData["pageSize"]" pagenumshown="10"
+                 currentpage="@ViewData["pageIndex"]">
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        var Acroleic_acid = {
+            ExportExcel: function () {
+                var S_username = $("#S_username").val();
+                var S_realName = $("#S_realName").val();
+                window.location.href = "/sys_userinfo/ExportUserinfo/?S_username=" + S_username + "&S_realName=" + S_realName + "";
+            }
+        }
+    </script>
+</body>
+</html>

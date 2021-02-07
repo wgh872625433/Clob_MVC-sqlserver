@@ -1,0 +1,137 @@
+﻿
+@{
+    Layout = null;
+}
+
+@model List<ClobDM_Model.Starch_check>
+<form id="pagerForm" method="post" action="@Url.Action("Index")">
+    <input type="hidden" name="pageNum" value="@ViewData["pageIndex"]" />
+    <input type="hidden" name="numPerPage" value="@ViewData["pageSize"]" />
+    <input name="S_username" id="SC_FName" type="hidden" value="@ViewData["SC_FName"]" / />
+
+</form>
+<div class="pageHeader">
+    <form onsubmit="return navTabSearch(this);" action="@Url.Action("Index")" method="post">
+        <div class="searchBar">
+            <ul class="searchContent">
+                <li>
+                    <label>
+                        检测日期：
+                    </label>
+                    <input name="SC_CheckTime" type="text" value="@ViewData["SC_CheckTime"]" />
+                </li>
+                <li>
+                    <label>
+                        生产厂家：
+                    </label>
+                    <input name="SC_FName" type="text" value="@ViewData["SC_FName"]" />
+                </li>
+            </ul>
+            <div class="subBar">
+                <ul>
+                    <li>
+                        <div class="buttonActive">
+                            <div class="buttonContent">
+                                <button type="submit">
+                                    检索
+                                </button>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="pageContent">
+    <div class="panelBar">
+        <ul class="toolBar">
+            <li><a class="add" href="/Starch_check/Add" mask="false" width="1000" height="550" target="dialog" rel="AddStarch_check"><span>添加淀粉检测</span></a></li>
+            @*<li>
+                <a class="icon" onclick="Starch_check.ExportExcel()"><span>导出查询数据</span></a>
+            </li>*@
+           
+            <li class="line">line</li>
+        </ul>
+    </div>
+    <table class="table" width="100%" layouth="138">
+        <thead>
+            <tr>
+                <th width="40">
+                    <input type="checkbox" group="ids" class="checkboxCtrl">
+                </th>
+                <th>
+                    编号
+                </th>
+                <th>
+                    检测日期
+                </th>
+                <th>
+                    器皿
+                </th>
+                <th>
+                    拱前
+                </th>
+                <th>
+                    拱后总
+                </th>
+                <th>
+                    水分含量
+                </th>
+                <th>
+                    测试人
+                </th>
+                <th>
+                    生产厂家
+                </th>
+                <th>
+                    创建时间
+                </th>
+                <th width="120">
+                    操作
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        <input name="ids" type="checkbox" value="@item.ID" />
+                    </td>
+                    <td>@item.ID</td>
+                    <td>@item.SC_CheckTime</td>
+                    <td>@item.SC_ware</td>
+                    <td>@item.SC_ArchFw</td>
+                    <td>@item.SC_ArchAw</td>
+                    <td>@item.SC_Wcontent</td>
+                    <td>@item.SC_FCheckUID</td>
+                    <td>@item.SC_FName</td>
+                    <td>@item.CreateTime</td>
+                    <td width="120">
+                        <a title="查看" target="dialog" href="/Starch_check/Detail?OID=@item.ID" mask="false" width="1000" height="550" class="btnInfo">详情</a>
+                        <a title="编辑" target="dialog" href="/Starch_check/Add?OID=@item.ID" class="btnEdit" mask="false" width="1000" height="550"> 编辑</a>
+                    </td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+    <div class="panelBar">
+        <div class="pages">
+            <span>每页20条，共 @ViewData["recordCount"] 条</span>
+        </div>
+        <div class="pagination" targettype="navTab" totalcount="@ViewData["recordCount"]" numperpage="@ViewData["pageSize"]" pagenumshown="10"
+             currentpage="@ViewData["pageIndex"]">
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    var Starch_check = {
+        ExportExcel: function () {
+            var S_username = $("#S_username").val();
+            var S_realName = $("#S_realName").val();
+            window.location.href = "/sys_userinfo/ExportUserinfo/?S_username=" + S_username + "&S_realName=" + S_realName + "";
+        }
+    }
+</script>

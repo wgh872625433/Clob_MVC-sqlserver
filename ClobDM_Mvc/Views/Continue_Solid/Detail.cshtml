@@ -1,0 +1,239 @@
+﻿
+@{
+    Layout = null;
+}
+
+@model List<ClobDM_Model.Continue_Solid>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <div class="pageContent">
+        <div class="pageFormContent" layouth="56">
+            @foreach (var item in Model)
+            {
+            <fieldset>
+                <legend>基本信息</legend>
+               
+                    <dl>
+                        <dt>
+                            <label>
+                                检测日期：
+                            </label>
+                        </dt>
+                        <dd>
+                            @item.CS_CheckTime
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>
+                            <label>
+                                进货数量：
+                            </label>
+                        </dt>
+                        <dd>
+                            @item.CS_InGoodNums
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>
+                            <label>
+                                抽测数量：
+                            </label>
+                        </dt>
+                        <dd>
+                            @item.CS_CheckGoodNums
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>
+                            <label>
+                                坩埚重：
+                            </label>
+                        </dt>
+                        <dd>
+                            @item.CS_CrucibleW
+                        </dd>
+
+                    </dl>
+                         <dl>
+                        <dt>
+                            <label>
+                                烘前总重：
+                            </label>
+                        </dt>
+                        <dd>
+                            @item.CS_ArchFTW1
+                        </dd>
+
+                    </dl>
+                         <dl>
+                        <dt>
+                            <label>
+                                烘后总重：
+                            </label>
+                        </dt>
+                        <dd>
+                            @item.CS_ArchFTW2
+                        </dd>
+
+                    </dl>
+                                <dl>
+                        <dt>
+                            <label>
+                                含固量：
+                            </label>
+                        </dt>
+                        <dd>
+                            @item.CS_solid
+                        </dd>
+
+                    </dl>
+                    <dl>
+                        <dt>
+                            <label>
+                                平均值：
+                            </label>
+                        </dt>
+                        <dd>
+                            @item.CS_avg
+                        </dd>
+
+                    </dl>
+                     <dl>
+                        <dt>
+                            <label>
+                                PH值：
+                            </label>
+                        </dt>
+                        <dd>
+                            @item.CS_PH
+                        </dd>
+
+                    </dl>
+                    <dl>
+                        <dt>
+                            <label>
+                                创建时间：
+                            </label>
+                        </dt>
+                        <dd>
+                            @item.CreateTime.ToString("yyyy-MM-dd HH:mm:ss")
+                        </dd>
+                    </dl>
+              
+            </fieldset>
+
+            <fieldset>
+                <legend>厂家信息</legend>
+                <dl>
+                    <dt>
+                        <label>
+                            含固量：
+                        </label>
+                    </dt>
+                    <dd>
+                        @item.CS_Fsolid
+                    </dd>
+
+                </dl>
+                <dl>
+                    <dt>
+                        <label>
+                            PH值：
+                        </label>
+                    </dt>
+                    <dd>
+                        @item.CS_FPH
+                    </dd>
+
+                </dl>
+                <dl>
+                    <dt>
+                        <label>
+                            生产厂家：
+                        </label>
+                    </dt>
+                    <dd>
+                        @item.CS_name
+                    </dd>
+
+                </dl>
+                <dl>
+                    <dt>
+                        <label>
+                            生产日期：
+                        </label>
+                    </dt>
+                    <dd>
+                        @item.CS_addTime
+                    </dd>
+
+                </dl>
+                <dl>
+                    <dt>
+                        <label>
+                            合格或不合格：
+                        </label>
+                    </dt>
+                    <dd>
+                        @item.CS_IsPass
+                    </dd>
+
+                </dl>
+                <dl>
+                    <dt>
+                        <label>
+                            测试人：
+                        </label>
+                    </dt>
+                    <dd>
+                        @item.CS_CheckUID
+                    </dd>
+
+                </dl>
+                <dl>
+                    <dt>
+                        <label>
+                            各月分合格率情况：
+                        </label>
+                    </dt>
+                    <dd>
+                        @item.CS_IsPassMsg
+                    </dd>
+
+                </dl>
+                <dl>
+                    <dt>
+                        <label>
+                            备注：
+                        </label>
+                    </dt>
+                    <dd>
+                        @item.CS_Remark
+                    </dd>
+
+                </dl>
+           </fieldset>
+                }
+         </div>
+        <div class="formBar">
+            <ul>
+                <li>
+                    <div class="button">
+                        <div class="buttonContent">
+                            <button type="button" class="close">
+                                关闭
+                            </button>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
+
+

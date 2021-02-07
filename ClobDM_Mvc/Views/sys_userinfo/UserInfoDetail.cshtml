@@ -1,0 +1,88 @@
+﻿
+@{
+    Layout = null;
+}
+@model List<ClobDM_Model.sys_userinfo>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <div class="pageContent">
+        <div class="pageFormContent" layouth="56">
+            <fieldset>
+                <legend>基本信息</legend>
+                @foreach (var item in Model)
+                {
+                    <dl>
+                        <dt>
+                            <label>
+                                编号：
+                            </label>
+                        </dt>
+                        <dd>
+                            @item.ID
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>
+                            <label>
+                                用户名：
+                            </label>
+                        </dt>
+                        <dd>
+                            @item.S_username
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>
+                            <label>
+                                姓名：
+                            </label>
+                        </dt>
+                        <dd>
+                            @item.S_realName
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>
+                            <label>
+                                状态：
+                            </label>
+                        </dt>
+                        <dd>
+                            @(item.S_state == 0 ? "正常" : "禁用")
+                        </dd>
+
+                    </dl>
+                    <dl>
+                        <dt>
+                            <label>
+                                创建时间：
+                            </label>
+                        </dt>
+                        <dd>
+                            @item.CreateTime.ToString("yyyy-MM-dd HH:mm:ss")
+                        </dd>
+                    </dl>
+                }
+            </fieldset>
+        </div>
+        <div class="formBar">
+            <ul>
+                <li>
+                    <div class="button">
+                        <div class="buttonContent">
+                            <button type="button" class="close">
+                                关闭
+                            </button>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
+

@@ -1,0 +1,212 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>新增用户</title>
+</head>
+<body>
+    <form method="post" class="pageForm required-validate"
+          action="/Starch_check/CheckAdd" onsubmit="return validateCallback(this,dialogAjaxDone);">
+        <input type="hidden" name="id" value="@ViewData["OID"]" />
+        <input type="hidden" name="CreateTime" value="@ViewData["CreateTime"]" />
+
+        <div class="pageContent">
+            <div class="pageFormContent" layouth="54">
+                <fieldset>
+                    <legend>基本信息</legend>
+
+                    <p class="notfirst">
+                        <label>
+                            检测日期：
+                        </label>
+                        <input name="SC_CheckTime" id="SC_CheckTime" value="@ViewData["SC_CheckTime"]"
+                               class="date textInput readonly required" readonly="readonly"  type="text" size="30"
+                               title="请输入检测日期" />
+
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            器皿：
+                        </label>
+                        <input name="SC_ArchFw" id="SC_ArchFw" value="@ViewData["SC_ArchFw"]"  class="required" type="text" size="30"
+                               title="请输入器皿" />
+
+                    </p>
+
+
+                    <p class="notfirst">
+                        <label>
+                            拱前：
+                        </label>
+                        <input name="SC_ArchFw" id="SC_ArchFw" value="@ViewData["SC_ArchFw"]" class="required" type="text" size="30"
+                               title="请输入拱前" />
+
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            拱后总：
+                        </label>
+                        <input name="SC_ArchAw" id="SC_ArchAw" value="@ViewData["SC_ArchAw"]" class="required" type="text" size="30"
+                               title="请输入拱后总" />
+
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            水分含量：
+                        </label>
+                        <input name="SC_Wcontent" id="SC_Wcontent" value="@ViewData["SC_Wcontent"]" class="required" type="text" size="30"
+                               title="请输入水分含量" />
+
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            水分含量平均值：
+                        </label>
+                        <input name="SC_WcontentAvg" id="SC_WcontentAvg" value="@ViewData["SC_WcontentAvg"]" class="required" type="text" size="30"
+                               title="请输入水分含量平均值" />
+
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            初始糊化温度：
+                        </label>
+                        <input name="SC_SgelationT" id="SC_SgelationT" value="@ViewData["SC_SgelationT"]" class="required" type="text" size="30"
+                               title="请输入初始糊化温度" />
+
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            初始糊化粘度：
+                        </label>
+                        <input name="SC_SgelationS" id="SC_SgelationS" value="@ViewData["SC_SgelationS"]" class="required" type="text" size="30"
+                               title="请输入初始糊化粘度" />
+
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            糊化峰值温度：
+                        </label>
+                        <input name="SC_gelationT" id="SC_gelationT" value="@ViewData["SC_gelationT"]" class="required" type="text" size="30"
+                               title="请输入糊化峰值温度" />
+
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            糊化峰值粘度：
+                        </label>
+                        <input name="SC_gelationS" id="SC_gelationS" value="@ViewData["SC_gelationS"]" class="required" type="text" size="30"
+                               title="请输入糊化峰值粘度" />
+
+                    </p>
+                    
+                   
+                </fieldset>
+                <fieldset>
+                    <legend>厂家信息</legend>
+                    <p class="notfirst">
+                        <label>
+                            水分含量：
+                        </label>
+                        <input name="SC_FWcontent" id="SC_FWcontent" value="@ViewData["SC_FWcontent"]" class="required" type="text" size="30"
+                               title="请输入水分含量" />
+
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            生产厂家：
+                        </label>
+                        <input name="SC_FName" id="SC_FName" value="@ViewData["SC_FName"]"  class="required" type="text" size="30"
+                               title="请输入生产厂家" />
+                    </p>
+
+                    <p class="notfirst">
+                        <label>
+                            批次号：
+                        </label>
+                        <input name="SC_Fcode" id="SC_Fcode" value="@ViewData["SC_Fcode"]" c class="required" type="text" size="30"
+                               title="请输入批次号" />
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            进货数量吨：
+                        </label>
+                        <input name="SC_FInGoodNums" id="SC_FInGoodNums" value="@ViewData["SC_FInGoodNums"]" class="required" type="text" size="30"
+                               title="请输入进货数量" />
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            抽测数量包：
+                        </label>
+                        <input name="SC_FCheckGoodNums" id="SC_FCheckGoodNums" value="@ViewData["SC_FCheckGoodNums"]" class="required" type="text" size="30"
+                               title="请输入抽测数量" />
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            质量情况：
+                        </label>
+                        <input name="SC_FQualityMsg" id="SC_FQualityMsg" value="@ViewData["SC_FQualityMsg"]" class="required" type="text" size="30"
+                               title="请输入质量情况" />
+                    </p>
+
+                    <p class="notfirst">
+                        <label>
+                            测试人：
+                        </label>
+                        <input name="SC_FCheckUID" id="SC_FCheckUID" value="@ViewData["SC_FCheckUID"]" class="required" type="text" size="30"
+                               title="请输入测试人" />
+                    </p>
+
+                    <p class="notfirst">
+                        <label>
+                            备注：
+                        </label>
+                        <input name="SC_FRemark" id="SC_FRemark" value="@ViewData["SC_FRemark"]" class="required" type="text" size="30"
+                               title="请输入备注" />
+                    </p>
+
+                    <p class="notfirst">
+                        <label>
+                            各月份合格率情况：
+                        </label>
+                        <input name="SC_FIsPassMsg" id="SC_FIsPassMsg" value="@ViewData["SC_FIsPassMsg"]" class="required" type="text" size="30"
+                               title="请输入各月份合格率情况" />
+                    </p>
+
+
+                </fieldset>
+            </div>
+            <div class="formBar">
+                <ul>
+                    <li>
+                        <span id="userInfoComplete" style="color: Red; visibility: hidden; height: 30px;
+                    line-height: 30px;"></span>
+                    </li>
+                    <li>
+                        <div class="buttonActive">
+                            <div class="buttonContent">
+                                <button type="submit" id="btnSubmit">
+                                    @(ViewData["OID"].ToString() == "0" ? "新增" : "提交")
+                                </button>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="button">
+                            <div class="buttonContent">
+                                <button type="button" class="close">
+                                    取消
+                                </button>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </form>
+</body>
+</html>
+

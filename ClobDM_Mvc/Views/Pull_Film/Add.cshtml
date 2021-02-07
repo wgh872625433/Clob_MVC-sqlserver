@@ -1,0 +1,254 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>新增拉伸膜</title>
+</head>
+<body>
+    <form method="post" class="pageForm required-validate"
+          action="/Pull_Film/CheckAdd" onsubmit="return validateCallback(this,dialogAjaxDone);">
+        <input type="hidden" name="id" value="@ViewData["OID"]" />
+        <input type="hidden" name="CreateTime" value="@ViewData["CreateTime"]" />
+
+        <div class="pageContent">
+            <div class="pageFormContent" layouth="54">
+                <fieldset>
+                    <legend>基本信息</legend>
+                    <p class="notfirst">
+                        <label>
+                            来货日期：
+                        </label>
+                        <input name="PF_InGoodsTime" id="PF_InGoodsTime" value="@ViewData["PF_InGoodsTime"]"
+                         class="date textInput readonly required" readonly="readonly"
+                             type="text" size="30"
+                               title="请输入来货日期" />
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            产品规格：
+                        </label>
+                        <input name="PF_Stand" id="PF_Stand" value="@ViewData["PF_Stand"]" class="required" type="text" size="30"
+                               title="请输入产品规格" />
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            总重：
+                        </label>
+                        <input name="PF_TWeight" id="PF_TWeight" value="@ViewData["PF_TWeight"]" class="required number" type="text" size="30"
+                               title="请输入总重" />
+
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            纸箱kg：
+                        </label>
+                        <input name="PF_PBox" id="PF_PBox" value="@ViewData["PF_PBox"]" class="required number" type="text" size="30"
+                               title="请输入纸箱kg" />
+
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            纸管kg：
+                        </label>
+                        <input name="PF_PChannel" id="PF_PChannel" value="@ViewData["PF_PChannel"]" class="required number" type="text" size="30"
+                               title="请输入纸管kg" />
+
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            净重kg/卷：
+                        </label>
+                        <input name="PF_CleanW" id="PF_CleanW" value="@ViewData["PF_CleanW"]" class="required number" type="text" size="30"
+                               title="请输入净重kg" />
+
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            进货数量：
+                        </label>
+                        <input name="PF_InGoodNums" id="PF_InGoodNums" value="@ViewData["PF_InGoodNums"]" class="required digits" type="text" size="30"
+                               title="请输入进货数量" />
+                    </p>
+
+                    <p class="notfirst">
+                        <label>
+                            抽测数量卷：
+                        </label>
+                        <input name="PF_CheckGoodNums" id="PF_CheckGoodNums" value="@ViewData["PF_CheckGoodNums"]" class="required digits" type="text" size="30"
+                               title="请输入抽测数量" />
+
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            克重g/m2：
+                        </label>
+                        <input name="PF_gm" id="PF_gm" value="@ViewData["PF_gm"]"  class="required number" type="text" size="30"
+                               title="请输入克重" />
+
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            宽度：
+                        </label>
+                        <input name="PF_ww" id="PF_ww" value="@ViewData["PF_ww"]" class="required number" type="text" size="30"
+                               title="请输入宽度" />
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            厚度：
+                        </label>
+                        <input name="PF_mm" id="PF_mm" value="@ViewData["PF_mm"]" class="required number" type="text" size="30"
+                               title="请输入厚度" />
+
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            拉断力纵向：
+                        </label>
+                        <input name="PF_PowerW1" id="PF_PowerW1" value="@ViewData["PF_PowerW1"]" class="required number" type="text" size="30"
+                               title="请输入拉断力纵向" />
+
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            拉断力横向：
+                        </label>
+                        <input name="PF_PowerW2" id="PF_PowerW2" value="@ViewData["PF_PowerW2"]" class="required number" type="text" size="30"
+                               title="请输入拉断力横向" />
+
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            断裂伸长率横向：
+                        </label>
+                        <input name="PF_drawSM1" id="PF_drawSM1" value="@ViewData["PF_drawSM1"]" class="required digits" type="text" size="30"
+                               title="请输入断裂伸长率横向" />
+
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            断裂伸长率纵向：
+                        </label>
+                        <input name="PF_drawSM2" id="PF_drawSM2" value="@ViewData["PF_drawSM2"]" class="required digits" type="text" size="30"
+                               title="请输入断裂伸长率纵向" />
+
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            备注：
+                        </label>
+                        <input name="PF_Remark" id="PF_Remark" value="@ViewData["PF_Remark"]" class="required" type="text" size="30"
+                               title="请输入备注" />
+
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            测试人：
+                        </label>
+                        <input name="PF_CheckUID" id="PF_CheckUID" value="@ViewData["PF_CheckUID"]" class="required" type="text" size="30"
+                               title="请输入测试人" />
+
+                    </p>
+                </fieldset>
+                <fieldset>
+                    <legend>厂家信息</legend>
+                    <p class="notfirst">
+                        <label>
+                            净重：
+                        </label>
+                        <input name="PF_FcleanW" id="PF_FcleanW" value="@ViewData["PF_FcleanW"]" class="required number" type="text" size="30"
+                               title="请输入净重" />
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            厚度：
+                        </label>
+                        <input name="PF_Fmm" id="PF_Fmm" value="@ViewData["PF_Fmm"]" class="required number" type="text" size="30"
+                               title="请输入厚度" />
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            宽度：
+                        </label>
+                        <input name="PF_Fww" id="PF_Fww" value="@ViewData["PF_Fww"]"  class="required digits" type="text" size="30"
+                               title="请输入宽度" />
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            拉伸强度：
+                        </label>
+                        <input name="PF_FdrawSM1" id="PF_FdrawSM1" value="@ViewData["PF_FdrawSM1"]" class="required digits" type="text" size="30"
+                               title="请输入拉伸强度" />
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            拉伸强度纵：
+                        </label>
+                        <input name="PF_FdrawSM2" id="PF_FdrawSM2" value="@ViewData["PF_FdrawSM2"]" class="required number" type="text" size="30"
+                               title="请输入拉伸强度纵" />
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            纵向断裂伸长率：
+                        </label>
+                        <input name="PF_FdisruptED" id="PF_FdisruptED" value="@ViewData["PF_FdisruptED"]" class="required digits" type="text" size="30"
+                               title="请输入纵向断裂伸长率" />
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            冲击强度g：
+                        </label>
+                        <input name="PF_FchargeS" id="PF_FchargeS" value="@ViewData["PF_FchargeS"]" class="required digits" type="text" size="30"
+                               title="请输入冲击强度" />
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            粘性：
+                        </label>
+                        <input name="PF_Fsticky" id="PF_Fsticky" value="@ViewData["PF_Fsticky"]" class="required" type="text" size="30"
+                               title="请输入粘性" />
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            厂家名称：
+                        </label>
+                        <input name="PF_FName" id="PF_FName" value="@ViewData["PF_FName"]" class="required" type="text" size="30"
+                               title="请输入厂家名称" />
+                    </p>
+                </fieldset>
+               </div>
+            <div class="formBar">
+                <ul>
+                    <li>
+                        <span id="userInfoComplete" style="color: Red; visibility: hidden; height: 30px;
+                    line-height: 30px;"></span>
+                    </li>
+                    <li>
+                        <div class="buttonActive">
+                            <div class="buttonContent">
+                                <button type="submit" id="btnSubmit">
+                                    @(ViewData["OID"].ToString() == "0" ? "新增" : "提交")
+                                </button>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="button">
+                            <div class="buttonContent">
+                                <button type="button" class="close">
+                                    取消
+                                </button>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </form>
+</body>
+</html>
+

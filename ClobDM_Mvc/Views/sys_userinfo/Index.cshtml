@@ -1,0 +1,144 @@
+﻿
+@{
+    Layout = null;
+}
+@model List<ClobDM_Model.sys_userinfo>
+<form id="pagerForm" method="post" action="@Url.Action("Index")">
+    <input type="hidden" name="pageNum" value="@ViewData["pageIndex"]" />
+    <input type="hidden" name="numPerPage" value="@ViewData["pageSize"]" />
+    <input name="S_username" id="S_username" type="hidden" value="@ViewData["S_username"]" />
+    <input name="S_realName" id="S_realName" type="hidden" value="@ViewData["S_realName"]" />
+</form>
+<div class="pageHeader">
+    <form onsubmit="return navTabSearch(this);" action="@Url.Action("Index")" method="post">
+        <div class="searchBar">
+            <ul class="searchContent">
+                <li>
+                    <label>
+                        用户名：
+                    </label>
+                    <input name="S_username" type="text" value="@ViewData["S_username"]" />
+                </li>
+                <li>
+                    <label>
+                        姓名：
+                    </label>
+                    <input name="S_realName" type="text" value="@ViewData["S_realName"]" />
+                </li>
+            </ul>
+            <div class="subBar">
+                <ul>
+                    <li>
+                        <div class="buttonActive">
+                            <div class="buttonContent">
+                                <button type="submit">
+                                    检索
+                                </button>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="pageContent">
+    <div class="panelBar">
+        <ul class="toolBar">
+            <li><a class="add" href="/sys_userinfo/AddUserInfo" mask="false" width="800" height="250" target="dialog" rel="SysUserInfo"><span>添加用户</span></a></li>
+            <li>
+                    <a class="icon"  onclick="userinfo.ExportExcel()"><span>导出查询数据</span></a>
+            </li>
+            <li>
+                <a class="delete" href="/sys_userinfo/DeleteUserInfoByIds" rel="ids" target="selectedTodo" posttype="string"
+                   title="确定要删除吗?"><span>批量删除</span></a>
+            </li>
+            <li>
+                <a class="delete" href="/sys_userinfo/RecoverUserInfoByIds" rel="ids" target="selectedTodo" posttype="string"
+                   title="确定要启用吗?"><span>批量启用</span></a>
+            </li>
+         
+            <li class="line">line</li>
+        </ul>
+    </div>
+    <table class="table" width="100%" layouth="138">
+        <thead>
+            <tr>
+                <th width="40">
+                    <input type="checkbox" group="ids" class="checkboxCtrl">
+                </th>
+                <th>
+                    编号
+                </th>
+                <th>
+                    用户名
+                </th>
+                <th>
+                    姓名
+                </th>
+                <th>
+                    用户角色
+                </th>
+                <th>
+                    状态
+                </th>
+                <th>
+                    创建时间
+                </th>
+                <th width="120">
+                    操作
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        <input name="ids" type="checkbox" value="@item.ID" />
+                    </td>
+                    <td>@item.ID</td>
+                    <td>@item.S_username</td>
+                    <td>@item.S_realName</td>
+                    <td>@item.S_roleId</td>
+                    <td>@(item.S_state == 0 ? "正常" : "删除")</td>
+                    <td>@item.CreateTime</td>
+                    <td width="120">
+                        <a title="查看" target="dialog" href="/sys_userinfo/UserInfoDetail?OID=@item.ID" mask="false" width="800" height="250" class="btnInfo">详情</a>
+                        <a title="编辑" target="dialog" href="/sys_userinfo/AddUserInfo?OID=@item.ID" class="btnEdit" mask="false" width="800" height="250"> 编辑</a>
+                        @if (item.S_state == 0)
+                        {
+                            <a title="确定要删除吗?" target="ajaxTodo" href="/sys_userinfo/DeleteUserInfo?otype=delete&OID=@item.ID" class="btnDel">
+                                删除
+                            </a>
+                        }
+                        else
+                        {
+                            <a title="确定要启用吗?" target="ajaxTodo" href="/sys_userinfo/DeleteUserInfo?otype=recover&OID=@item.ID" class="btnSelect">
+                                启用
+                            </a>
+                        }
+                    </td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+    <div class="panelBar">
+        <div class="pages">
+            <span>每页20条，共 @ViewData["recordCount"] 条</span>
+        </div>
+        <div class="pagination" targettype="navTab" totalcount="@ViewData["recordCount"]" numperpage="@ViewData["pageSize"]" pagenumshown="10"
+             currentpage="@ViewData["pageIndex"]">
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    var userinfo = {
+        ExportExcel: function () {
+            var S_username = $("#S_username").val();
+            var S_realName = $("#S_realName").val();
+            window.location.href = "/sys_userinfo/ExportUserinfo/?S_username=" + S_username + "&S_realName=" + S_realName + "";
+        }
+    }
+</script>

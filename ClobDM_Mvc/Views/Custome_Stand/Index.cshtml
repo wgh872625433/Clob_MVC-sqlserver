@@ -1,0 +1,142 @@
+﻿
+@{
+    Layout = null;
+}
+
+@model List<ClobDM_Model.Custome_Stand>
+
+<html>
+<head>
+    <title>丙烯酸</title>
+</head>
+<body>
+    <form id="pagerForm" method="post" action="@Url.Action("Index")">
+        <input type="hidden" name="pageNum" value="@ViewData["pageIndex"]" />
+        <input type="hidden" name="numPerPage" value="@ViewData["pageSize"]" />
+        <input name="CS_Name" id="CS_Name" type="hidden" value="@ViewData["CS_Name"]" />
+    </form>
+    <div class="pageHeader">
+        <form onsubmit="return navTabSearch(this);" action="@Url.Action("Index")" method="post">
+            <div class="searchBar">
+                <ul class="searchContent">
+                    <li>
+                        <label>
+                            标准名称：
+                        </label>
+                        <input name="CS_Name" type="text" value="@ViewData["CS_Name"]" />
+                    </li>
+                </ul>
+                <div class="subBar">
+                    <ul>
+                        <li>
+                            <div class="buttonActive">
+                                <div class="buttonContent">
+                                    <button type="submit">
+                                        检索
+                                    </button>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="pageContent">
+        <div class="panelBar">
+            <ul class="toolBar">
+                <li><a class="add" href="/Custome_Stand/Add" mask="false" width="1000" height="550" target="dialog" rel="addAcroleic_acid"><span>添加客户标准</span></a></li>
+                <li class="line">line</li>
+            </ul>
+        </div>
+        <table class="table" width="100%" layouth="138">
+            <thead>
+                <tr>
+                    <th width="40">
+                        <input type="checkbox" group="ids" class="checkboxCtrl">
+                    </th>
+                    <th>
+                        编号
+                    </th>
+                    <th>
+                        标准名称
+                    </th>
+                    <th>
+                        厚度
+                    </th>
+                    <th>
+                        厚度标准
+                    </th>
+                    <th>
+                        断裂强度标准纵
+                    </th>
+                    <th>
+                        断裂强度标准横
+                    </th>
+                    <th>
+                        断裂强度标准横单
+                    </th>
+                    <th>
+                        变形率标准纵
+                    </th>
+                    <th>
+                        变形率标准纵单
+                    </th>
+                    <th>
+                        变形率标准横向
+                    </th>
+                    <th>
+                        创建时间
+                    </th>
+                    <th width="120">
+                        操作
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            <input name="ids" type="checkbox" value="@item.ID" />
+                        </td>
+                        <td>@item.ID</td>
+                        <td>@item.CS_Name</td>
+                        <td>@item.CS_Deep</td>
+                        <td>@item.CS_DeepS</td>
+                        <td>@item.CS_BreakPowerS1</td>
+                        <td>@item.CS_BreakPowerS2</td>
+                        <td>@item.CS_BreakPowerS3</td>
+                        <td>@item.CS_deformation_rate1</td>
+                        <td>@item.CS_deformation_rate2</td>
+                        <td>@item.CS_deformation_rate3</td>
+                        <td>@item.CreateTime</td>
+                        <td width="120">
+                            <a title="查看" target="dialog" href="/Custome_Stand/Detail?OID=@item.ID" mask="false" width="1000" height="550" class="btnInfo">详情</a>
+                            <a title="编辑" target="dialog" href="/Custome_Stand/Add?OID=@item.ID" class="btnEdit" mask="false" width="1000" height="550"> 编辑</a>
+                        </td>
+
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <div class="panelBar">
+            <div class="pages">
+                <span>每页20条，共 @ViewData["recordCount"] 条</span>
+            </div>
+            <div class="pagination" targettype="navTab" totalcount="@ViewData["recordCount"]" numperpage="@ViewData["pageSize"]" pagenumshown="10"
+                 currentpage="@ViewData["pageIndex"]">
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        var Custome_Stand = {
+            ExportExcel: function () {
+                var S_username = $("#S_username").val();
+                var S_realName = $("#S_realName").val();
+                window.location.href = "/Custome_Stand/Export/?S_username=" + S_username + "&S_realName=" + S_realName + "";
+            }
+        }
+    </script>
+</body>
+</html>

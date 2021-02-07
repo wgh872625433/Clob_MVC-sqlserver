@@ -1,0 +1,190 @@
+﻿
+@{
+    Layout = null;
+}
+
+@model List<ClobDM_Model.Stattis_Hot>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <div class="pageContent">
+        <div class="pageFormContent" layouth="56">
+            @foreach (var item in Model)
+            {
+                <fieldset>
+                    <legend>基本信息</legend>
+
+                    <dl>
+                        <dt>
+                            <label>
+                                蓝号：
+                            </label>
+                        </dt>
+                        <dd>
+                            @item.lan_hao
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>
+                            <label>
+                                卷号：
+                            </label>
+                        </dt>
+                        <dd>
+                            @item.juan_hao
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>
+                            <label>
+                                烘前：
+                            </label>
+                        </dt>
+                        <dd>
+                            @item.hot_front
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>
+                            <label>
+                                烘后总：
+                            </label>
+                        </dt>
+                        <dd>
+                            @(item.hot_afterTotal)
+                        </dd>
+
+                    </dl>
+                    <dl>
+                        <dt>
+                            <label>
+                                含水率：
+                            </label>
+                        </dt>
+                        <dd>
+                            @(item.Water_per)
+                        </dd>
+
+                    </dl>
+                    <dl>
+                        <dt>
+                            <label>
+                                纵向1：
+                            </label>
+                        </dt>
+                        <dd>
+                            @(item.release_d1)
+                        </dd>
+
+                    </dl>
+                    <dl>
+                        <dt>
+                            <label>
+                                纵向2：
+                            </label>
+                        </dt>
+                        <dd>
+                            @(item.release_d2)
+                        </dd>
+
+                    </dl>
+                    <dl>
+                        <dt>
+                            <label>
+                                纵向3：
+                            </label>
+                        </dt>
+                        <dd>
+                            @(item.release_d3)
+                        </dd>
+
+                    </dl>
+                    <dl>
+                        <dt>
+                            <label>
+                                纵向4：
+                            </label>
+                        </dt>
+                        <dd>
+                            @(item.release_d4)
+                        </dd>
+
+                    </dl>
+                    <dl>
+                        <dt>
+                            <label>
+                                横向1：
+                            </label>
+                        </dt>
+                        <dd>
+                            @(item.horizontal_d1)
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>
+                            <label>
+                                横向2：
+                            </label>
+                        </dt>
+                        <dd>
+                            @(item.horizontal_d2)
+                        </dd>
+                    </dl>
+
+
+                    <dl>
+                        <dt>
+                            <label>
+                                横向3：
+                            </label>
+                        </dt>
+                        <dd>
+                            @(item.horizontal_d3)
+                        </dd>
+                    </dl>
+
+
+                    <dl>
+                        <dt>
+                            <label>
+                                横向4：
+                            </label>
+                        </dt>
+                        <dd>
+                            @(item.horizontal_d4)
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>
+                            <label>
+                                创建时间：
+                            </label>
+                        </dt>
+                        <dd>
+                            @item.CreateTime.ToString("yyyy-MM-dd HH:mm:ss")
+                        </dd>
+                    </dl>
+                </fieldset>
+
+            }
+
+        </div>
+        <div class="formBar">
+            <ul>
+                <li>
+                    <div class="button">
+                        <div class="buttonContent">
+                            <button type="button" class="close">
+                                关闭
+                            </button>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

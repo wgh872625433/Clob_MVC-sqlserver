@@ -1,0 +1,229 @@
+﻿
+@{
+    Layout = null;
+}
+
+@model List<ClobDM_Model.polyester_chip>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <div class="pageContent">
+        <div class="pageFormContent" layouth="56">
+            <fieldset>
+                <legend>基本信息</legend>
+                @foreach (var item in Model)
+                {
+                    <dl>
+                        <dt>
+                            <label>
+                                测试时间：
+                            </label>
+                        </dt>
+                        <dd>
+                            @item.PC_ChekTime.ToString("yyyy-MM-dd")
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>
+                            <label>
+                                进货数量：
+                            </label>
+                        </dt>
+                        <dd>
+                            @item.PC_InGoodsNum
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>
+                            <label>
+                                湿切片重量：
+                            </label>
+                        </dt>
+                        <dd>
+                            @item.PC_WetSectionH
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>
+                            <label>
+                                H1：
+                            </label>
+                        </dt>
+                        <dd>
+                            @item.PC_H1
+                        </dd>
+
+                    </dl>
+                    <dl>
+                        <dt>
+                            <label>
+                                H2：
+                            </label>
+                        </dt>
+                        <dd>
+                            @item.PC_H2
+                        </dd>
+
+                    </dl>
+                    <dl>
+                        <dt>
+                            <label>
+                                水分：
+                            </label>
+                        </dt>
+                        <dd>
+                            @item.PC_WaterCompent
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>
+                            <label>
+                                厂家检测水分：
+                            </label>
+                        </dt>
+                        <dd>
+                            @item.PC_FCheckWater
+                        </dd>
+                    </dl>
+                    
+                    
+                    
+                       <dl>
+                        <dt>
+                            <label>
+                                厂家检测(特殊粘度)：
+                            </label>
+                        </dt>
+                        <dd>
+                            @item.PC_FCheckSS
+                        </dd>
+                    </dl>
+                    
+                    
+                       <dl>
+                        <dt>
+                            <label>
+                                百粒克重1：
+                            </label>
+                        </dt>
+                        <dd>
+                            @item.PC_HundredW1
+                        </dd>
+                    </dl>
+                    
+                    
+                        
+                       <dl>
+                        <dt>
+                            <label>
+                                百粒克重2：
+                            </label>
+                        </dt>
+                        <dd>
+                            @item.PC_HundredW2
+                        </dd>
+                    </dl>
+                    
+                         <dl>
+                        <dt>
+                            <label>
+                                产品批号：
+                            </label>
+                        </dt>
+                        <dd>
+                            @item.PC_PCode
+                        </dd>
+                    </dl>
+                    
+                    
+                         <dl>
+                        <dt>
+                            <label>
+                                堆积密度：
+                            </label>
+                        </dt>
+                        <dd>
+                            @item.PC_HeapUPD
+                        </dd>
+                    </dl>
+                    
+                          <dl>
+                        <dt>
+                            <label>
+                                熔点：
+                            </label>
+                        </dt>
+                        <dd>
+                            @item.PC_MeltingP
+                        </dd>
+                    </dl>
+                    
+                    
+                    
+                          <dl>
+                        <dt>
+                            <label>
+                                备注：
+                            </label>
+                        </dt>
+                        <dd>
+                            @item.PC_Remark
+                        </dd>
+                    </dl>
+                    
+                    
+                    
+                    <dl>
+                        <dt>
+                            <label>
+                                生产厂家：
+                            </label>
+                        </dt>
+                        <dd>
+                            @(item.PC_FName)
+                        </dd>
+
+                    </dl>
+                    <dl>
+                        <dt>
+                            <label>
+                                测试人：
+                            </label>
+                        </dt>
+                        <dd>
+                            @item.PC_CheckUser
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>
+                            <label>
+                                创建时间：
+                            </label>
+                        </dt>
+                        <dd>
+                            @item.CreateTime.ToString("yyyy-MM-dd HH:mm:ss")
+                        </dd>
+                    </dl>
+                }
+            </fieldset>
+        </div>
+        <div class="formBar">
+            <ul>
+                <li>
+                    <div class="button">
+                        <div class="buttonContent">
+                            <button type="button" class="close">
+                                关闭
+                            </button>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
+

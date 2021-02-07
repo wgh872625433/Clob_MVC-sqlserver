@@ -1,0 +1,80 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>新增用户</title>
+</head>
+<body>
+    <form method="post" class="pageForm required-validate"
+          action="/sys_userinfo/CheckUserInfo" onsubmit="return validateCallback(this,dialogAjaxDone);">
+        <input type="hidden" name="id" value="@ViewData["OID"]" />
+        <input type="hidden" name="CreateTime" value="@ViewData["CreateTime"]" />
+
+        <input type="hidden" name="S_checkUID" value="@ViewData["S_checkUID"]" />
+
+        <input type="hidden" name="S_roleId" value="@ViewData["S_roleId"]" / />
+        <div class="pageContent">
+            <div class="pageFormContent" layouth="54">
+                <fieldset>
+                    <legend>基本信息</legend>
+
+                    <p class="notfirst">
+                        <label>
+                            用户名：
+                        </label>
+                        <input name="s_username" id="S_username" value="@ViewData["S_username"]" class="required" type="text" size="30" 
+                               title="请输入用户名" />
+
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            姓名：
+                        </label>
+                        <input name="S_realName" id="S_realName" value="@ViewData["S_realName"]" class="required" type="text" size="30" 
+                               title="请输入姓名" />
+
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            密码：
+                        </label>
+                        <input name="S_password" id="S_password" value="@ViewData["S_password"]" class="required" type="password" size="30" 
+                               title="请输入密码" />
+
+                    </p>
+                </fieldset>
+            </div>
+            <div class="formBar">
+                <ul>
+                    <li>
+                        <span id="userInfoComplete" style="color: Red; visibility: hidden; height: 30px;
+                    line-height: 30px;"></span>
+                    </li>
+                    <li>
+                        <div class="buttonActive">
+                            <div class="buttonContent">
+                                <button type="submit" id="btnSubmit">
+                                    @(ViewData["OID"].ToString() == "0" ? "新增" : "提交")
+                                </button>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="button">
+                            <div class="buttonContent">
+                                <button type="button" class="close">
+                                    取消
+                                </button>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </form>
+</body>
+</html>

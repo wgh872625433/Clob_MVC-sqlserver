@@ -1,0 +1,208 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>新增水性固化剂</title>
+</head>
+<body>
+    <form method="post" class="pageForm required-validate"
+          action="/Water_solid/CheckAdd" onsubmit="return validateCallback(this,dialogAjaxDone);">
+        <input type="hidden" name="id" value="@ViewData["OID"]" />
+        <input type="hidden" name="CreateTime" value="@ViewData["CreateTime"]" />
+        <div class="pageContent">
+            <div class="pageFormContent" layouth="54">
+                <fieldset>
+                    <legend>基本信息</legend>
+
+                    <p class="notfirst">
+                        <label>
+                            检测日期：
+                        </label>
+                        <input name="WS_CheckTime" id="WS_CheckTime" value="@ViewData["WS_CheckTime"]"
+                               class="date textInput readonly required" readonly="readonly" type="text" size="30"
+                               title="请输入检测日期" />
+
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            进货数量：
+                        </label>
+                        <input name="WS_InGoodNums" id="WS_InGoodNums" value="@ViewData["WS_InGoodNums"]" class="required digits" type="text" size="30"
+                               title="请输入进货数量" />
+
+                    </p>
+
+                    <p class="notfirst">
+                        <label>
+                            抽测数量：
+                        </label>
+                        <input name="WS_CheckGoodNums" id="WS_CheckGoodNums" value="@ViewData["WS_CheckGoodNums"]" class="required digits" type="text" size="30"
+                               title="请输入姓名抽测数量" />
+
+                    </p>
+
+
+                    <p class="notfirst">
+                        <label>
+                            坩埚重：
+                        </label>
+                        <input name="WS_CrucibleW" id="WS_CrucibleW" value="@ViewData["WS_CrucibleW"]" class="required number" type="text" size="30"
+                               title="请输入坩埚重" />
+
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            拱前总重：
+                        </label>
+                        <input name="WS_ArchFTW1" id="WS_ArchFTW1" value="@ViewData["WS_ArchFTW1"]" class="required number" type="text" size="30"
+                               title="请输入拱前总重" />
+
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            拱后总重：
+                        </label>
+                        <input name="WS_ArchFTW2" id="WS_ArchFTW2" value="@ViewData["WS_ArchFTW2"]" class="required number" type="text" size="30"
+                               title="请输入拱后总重" />
+
+                    </p>
+
+
+                    <p class="notfirst">
+                        <label>
+                            含固量：
+                        </label>
+                        <input name="WS_solid" id="WS_solid" value="@ViewData["WS_solid"]" class="required number" type="text" size="30"
+                               title="请输入含固量" />
+
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            平均值：
+                        </label>
+                        <input name="WS_avg" id="WS_avg" value="@ViewData["WS_avg"]" class="required number" type="text" size="30"
+                               title="请输入平均值" />
+
+                    </p>
+
+                    <p class="notfirst">
+                        <label>
+                            PH值：
+                        </label>
+                        <input name="WS_PH" id="WS_PH" value="@ViewData["WS_PH"]" class="required digits" type="text" size="30"
+                               title="请输入PH值" />
+
+                    </p>
+
+                  
+                </fieldset>
+                <fieldset>
+                    <legend>厂家信息</legend>
+                    <p class="notfirst">
+                        <label>
+                            含固量：
+                        </label>
+                        <input name="WS_Fsolid" id="WS_Fsolid" value="@ViewData["WS_Fsolid"]" class="required number" type="text" size="30"
+                               title="请输入含固量" />
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            PH值：
+                        </label>
+                        <input name="WS_FPH" id="WS_FPH" value="@ViewData["WS_FPH"]" class="required digits" type="text" size="30"
+                               title="请输入PH值" />
+                    </p>
+
+                    <p class="notfirst">
+                        <label>
+                            检测粘度：
+                        </label>
+                        <input name="WS_FCheckS" id="WS_FCheckS" value="@ViewData["WS_FCheckS"]" class="required number" type="text" size="30"
+                               title="请输入检测粘度" />
+                    </p>
+
+
+                    <p class="notfirst">
+                        <label>
+                           生产日期：
+                        </label>
+                        <input name="WS_AddTime" id="WS_AddTime" value="@ViewData["WS_AddTime"]" 
+                               class="date textInput readonly required" readonly="readonly"
+                               type="text" size="30"
+                               title="请输入生产日期" />
+                    </p>
+
+                    <p class="notfirst">
+                        <label>
+                            生产厂家：
+                        </label>
+                        <input name="WS_FName" id="WS_FName" value="@ViewData["WS_FName"]" class="required" type="text" size="30"
+                               title="请输入生产厂家" />
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            合格与否：
+                        </label>
+                        <input name="WS_FIsPass" id="WS_FIsPass" value="@ViewData["WS_FIsPass"]" class="required" type="text" size="30"
+                               title="请输入合格与否" />
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            检测员：
+                        </label>
+                        <input name="WS_FCheckUID" id="WS_FCheckUID" value="@ViewData["WS_FCheckUID"]" class="required" type="text" size="30"
+                               title="请输入检测员" />
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            各月份合格率情况：
+                        </label>
+                        <input name="WS_FPassMsg" id="WS_FPassMsg" value="@ViewData["WS_FPassMsg"]" class="required" type="text" size="30"
+                               title="请输入各月份合格率情况" />
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            备注：
+                        </label>
+                        <input name="WS_FRemark" id="WS_FRemark" value="@ViewData["WS_FRemark"]" class="required" type="text" size="30"
+                               title="请输入备注" />
+                    </p>
+
+
+
+                 </fieldset>
+              </div>
+            <div class="formBar">
+                <ul>
+                    <li>
+                        <span id="userInfoComplete" style="color: Red; visibility: hidden; height: 30px;
+                    line-height: 30px;"></span>
+                    </li>
+                    <li>
+                        <div class="buttonActive">
+                            <div class="buttonContent">
+                                <button type="submit" id="btnSubmit">
+                                    @(ViewData["OID"].ToString() == "0" ? "新增" : "提交")
+                                </button>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="button">
+                            <div class="buttonContent">
+                                <button type="button" class="close">
+                                    取消
+                                </button>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </form>
+</body>
+</html>

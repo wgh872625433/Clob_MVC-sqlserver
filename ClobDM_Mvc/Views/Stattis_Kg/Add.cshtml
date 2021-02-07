@@ -1,0 +1,400 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>热收缩计算</title>
+</head>
+<body>
+    <form method="post" class="pageForm required-validate"
+          action="/Stattis_Kg/CheckAdd" onsubmit="return validateCallback(this,dialogAjaxDone);">
+        <input type="hidden" name="id" value="@ViewData["OID"]" />
+        <div class="pageContent">
+            <div class="pageFormContent" layouth="54">
+                <fieldset>
+                    <legend>基本信息</legend>
+
+                    <p class="notfirst">
+                        <label>
+                            生产日期：
+                        </label>
+                        <input name="sk_addTime" id="sk_addTime" value="@ViewData["sk_addTime"]"
+                               class="date textInput readonly required" readonly="readonly" type="text" size="30"
+                               title="请输入生产日期" />
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            产品品名：
+                        </label>
+                        <input name="sk_name" id="sk_name" value="@ViewData["sk_name"]" class="required" type="text" size="30"
+                               title="请输入产品品名" />
+
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            卷重：
+                        </label>
+                        <input name="sk_juanW" id="sk_juanW" value="@ViewData["sk_juanW"]" class="required digits" type="text" size="30"
+                               title="请输入卷重" />
+
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            卷号：
+                        </label>
+                        <input name="sk_juanH" id="sk_juanH" value="@ViewData["sk_juanH"]" class="required digits" type="text" size="30"
+                               title="请输入卷号" />
+
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            卷长：
+                        </label>
+                        <input name="sk_juanC" id="sk_juanC" value="@ViewData["sk_juanC"]" class="required digits" type="text" size="30"
+                               title="请输入卷长" />
+
+                    </p>
+
+                    <p class="notfirst">
+                        <label>
+                            幅宽：
+                        </label>
+                        <input name="sk_rangw" id="sk_rangw" value="@ViewData["sk_rangw"]" class="required digits" type="text" size="30"
+                               title="请输入幅宽" />
+
+                    </p>
+
+                    <p class="notfirst">
+                        <label>
+                            幅数：
+                        </label>
+                        <input name="sk_rangnum" id="sk_rangnum" value="@ViewData["sk_rangnum"]" class="required digits" type="text" size="30"
+                               title="请输入幅数" />
+                    </p>
+
+                </fieldset>
+                <fieldset>
+                    <legend>克重信息</legend>
+                    <p class="notfirst">
+                        <label>
+                            实验克重：
+                        </label>
+                        <input name="sk_clobkgw" id="sk_clobkgw" value="@ViewData["sk_clobkgw"]" class="required number" type="text" size="30"
+                               title="请输入实验克重" />
+
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            克重1：
+                        </label>
+                        <input name="sk_kg1" id="sk_kg1" value="@ViewData["sk_kg1"]" class="required number" type="text" size="30"
+                               title="请输入克重1" />
+
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            克重2：
+                        </label>
+                        <input name="sk_kg2" id="sk_kg2" value="@ViewData["sk_kg2"]" class="required number" type="text" size="30"
+                               title="请输入克重2" />
+
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            克重3：
+                        </label>
+                        <input name="sk_kg3" id="sk_kg3" value="@ViewData["sk_kg3"]" class="required number" type="text" size="30"
+                               title="请输入克重3" />
+                    </p>
+
+                    <p class="notfirst">
+                        <label>
+                            克重4：
+                        </label>
+                        <input name="sk_kg4" id="sk_kg4" value="@ViewData["sk_kg4"]" class="required number" type="text" size="30"
+                               title="请输入克重4" />
+                    </p>
+
+                    <p class="notfirst">
+                        <label>
+                            克重5：
+                        </label>
+                        <input name="sk_kg5" id="sk_kg5" value="@ViewData["sk_kg5"]" class="required number" type="text" size="30"
+                               title="请输入克重5" />
+                    </p>
+                    
+                </fieldset>
+
+
+                <fieldset>
+                    <legend>厚度信息</legend>
+                    <p class="notfirst">
+                        <label>
+                            厚度1：
+                        </label>
+                        <input name="sk_hd1" id="sk_hd1" value="@ViewData["sk_hd1"]"  class="required number" type="text" size="30"
+                               title="请输入厚度1" />
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            厚度2：
+                        </label>
+                        <input name="sk_hd2" id="sk_hd2" value="@ViewData["sk_hd2"]"  class="required number" type="text" size="30"
+                               title="请输入厚度2" />
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            厚度3：
+                        </label>
+                        <input name="sk_hd3" id="sk_hd3" value="@ViewData["sk_hd3"]" class="required number" type="text" size="30"
+                               title="请输入厚度3" />
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            厚度4：
+                        </label>
+                        <input name="sk_hd4" id="sk_hd4" value="@ViewData["sk_hd4"]" class="required number" type="text" size="30"
+                               title="请输入厚度4" />
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            厚度5：
+                        </label>
+                        <input name="sk_hd5" id="sk_hd5" value="@ViewData["sk_hd5"]"  class="required number" type="text" size="30"
+                               title="请输入厚度5" />
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            厚度6：
+                        </label>
+                        <input name="sk_hd6" id="sk_hd6" value="@ViewData["sk_hd6"]"  class="required number" type="text" size="30"
+                               title="请输入厚度6" />
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            厚度7：
+                        </label>
+                        <input name="sk_hd7" id="sk_hd7" value="@ViewData["sk_hd7"]"  class="required number" type="text" size="30"
+                               title="请输入厚度7" />
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            厚度8：
+                        </label>
+                        <input name="sk_hd8" id="sk_hd8" value="@ViewData["sk_hd8"]"  class="required number" type="text" size="30"
+                               title="请输入厚度8" />
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            厚度9：
+                        </label>
+                        <input name="sk_hd9" id="sk_hd9" value="@ViewData["sk_hd9"]" class="required number" type="text" size="30"
+                               title="请输入厚度9" />
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            厚度10：
+                        </label>
+                        <input name="sk_hd10" id="sk_hd10" value="@ViewData["sk_hd10"]" class="required number" type="text" size="30"
+                               title="请输入厚度10" />
+                    </p>
+                    <p class="nowrap">
+                        <div class="buttonContent">
+                            <button type="button" id="Button3" onclick="jisuan()">
+                                统计
+                            </button>
+                        </div>
+                    </p>
+                </fieldset>
+
+
+                <fieldset>
+                    <legend>统计结果</legend>
+                    <p class="notfirst">
+                        <label>
+                            克重均值
+                        </label>
+                        <input name="sk_kgavg" id="sk_kgavg" value='' readonly="readonly" class="required number"
+                               type="text" size="30" title="请输入克重均值" />
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            克度cv
+                        </label>
+                        <input name="sk_kgCV" id="sk_kgCV" value='' readonly="readonly" class="required number"
+                               type="text" size="30" title="请输入克度cv" />
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            克重厚度
+                        </label>
+                        <input name="sk_kghd" id="sk_kghd" value='' readonly="readonly" class="required number"
+                               type="text" size="30" title="请输入克重厚度" />
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            厚度cv
+                        </label>
+                        <input name="sk_hdCV" id="sk_hdCV" value='' readonly="readonly" class="required number"
+                               type="text" size="30" title="请输入厚度cv" />
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            厚度最小
+                        </label>
+                        <input name="sk_hdMin" id="sk_hdMin" value='' readonly="readonly" class="required number"
+                               type="text" size="30" title="请输入厚度最小" />
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            厚度最大
+                        </label>
+                        <input name="sk_hdMax" id="sk_hdMax" value='' readonly="readonly" class="required number"
+                               type="text" size="30" title="请输入厚度最大" />
+                    </p>
+                </fieldset>
+            </div>
+            <div class="formBar">
+                <ul>
+                    <li>
+                        <span id="userInfoComplete" style="color: Red; visibility: hidden; height: 30px;
+                    line-height: 30px;"></span>
+                    </li>
+                    <li>
+                        <div class="buttonActive">
+                            <div class="buttonContent">
+                                <button type="submit" id="btnSubmit">
+                                    @(ViewData["OID"].ToString() == "0" ? "新增" : "提交")
+                                </button>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="button">
+                            <div class="buttonContent">
+                                <button type="button" class="close">
+                                    取消
+                                </button>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </form>
+</body>
+</html>
+<script type="text/javascript">
+
+    function jisuan() {
+
+        var sk_kg1 = $("#sk_kg1").val();
+        if (sk_kg1 == "") {
+            alert("请输入克重1");
+            return false;
+        }
+        var sk_kg2 = $("#sk_kg2").val();
+        if (sk_kg2 == "") {
+            alert("请输入克重2");
+            return false;
+        }
+        var sk_kg3 = $("#sk_kg3").val();
+        if (sk_kg3 == "") {
+            alert("请输入克重3");
+            return false;
+        }
+        var sk_kg4 = $("#sk_kg4").val();
+        if (sk_kg4 == "") {
+            alert("请输入克重4");
+            return false;
+        }
+        var sk_kg5 = $("#sk_kg5").val();
+        if (sk_kg5 == "") {
+            alert("请输入克重5");
+            return false;
+        }
+        var sk_hd1 = $("#sk_hd1").val();
+        if (sk_hd1 == "") {
+            alert("请输入厚度1");
+            return false;
+        }
+        var sk_hd2 = $("#sk_hd2").val();
+        if (sk_hd2 == "") {
+            alert("请输入厚度2");
+            return false;
+        }
+        var sk_hd3 = $("#sk_hd3").val();
+        if (sk_hd3 == "") {
+            alert("请输入厚度3");
+            return false;
+        }
+        var sk_hd4 = $("#sk_hd4").val();
+        if (sk_hd4 == "") {
+            alert("请输入厚度3");
+            return false;
+        }
+        var sk_hd5 = $("#sk_hd5").val();
+        if (sk_hd5 == "") {
+            alert("请输入厚度5");
+            return false;
+        }
+        var sk_hd6 = $("#sk_hd6").val();
+        if (sk_hd6 == "") {
+            alert("请输入厚度6");
+            return false;
+        }
+        var sk_hd7 = $("#sk_hd7").val();
+        if (sk_hd7 == "") {
+            alert("请输入厚度7");
+            return false;
+        }
+        var sk_hd8 = $("#sk_hd8").val();
+        if (sk_hd8 == "") {
+            alert("请输入厚度8");
+            return false;
+        }
+        var sk_hd9 = $("#sk_hd9").val();
+        if (sk_hd9 == "") {
+            alert("请输入厚度9");
+            return false;
+        }
+        var sk_hd10 = $("#sk_hd10").val();
+        if (sk_hd10 == "") {
+            alert("请输入厚度10");
+            return false;
+        }
+        $.ajax({
+            type: "POST",
+            url: "/Stattis_Kg/cattKgHd2",
+            data: {
+                "sk_kg1": sk_kg1, "sk_kg2": sk_kg2, "sk_kg3": sk_kg3, "sk_kg4": sk_kg4, "sk_kg5": sk_kg5,
+                "sk_hd1": sk_hd1, "sk_hd2": sk_hd2, "sk_hd3": sk_hd3, "sk_hd4": sk_hd4, "sk_hd5": sk_hd5,
+                "sk_hd6": sk_hd6, "sk_hd7": sk_hd7, "sk_hd8": sk_hd8, "sk_hd9": sk_hd9, "sk_hd10": sk_hd10
+            },
+            success: function (result) {
+                alert(result);
+                console.log(result);
+                if (result != null) {
+                    var ArrayResult = result.split('|');
+                  
+                    $("#sk_kgCV").val(ArrayResult[0]);
+                    $("#sk_kgavg").val(ArrayResult[1]);
+                    $("#sk_hdMin").val(ArrayResult[2]);
+                    $("#sk_hdMax").val(ArrayResult[3]);
+                    $("#sk_hdCV").val(ArrayResult[4]);
+                    $("#sk_kghd").val(ArrayResult[5]);
+                   
+                }
+            },
+            //请求失败，包含具体的错误信息
+            error: function (e) {
+                console.log(e.status);
+                console.log(e.responseText);
+            }
+        });
+
+    }
+</script>

@@ -1,0 +1,185 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>新增聚酯切片</title>
+</head>
+<body>
+    <form method="post" class="pageForm required-validate"
+          action="/polyester_chip/Checkpolyester_chip" onsubmit="return validateCallback(this,dialogAjaxDone);">
+        <input type="hidden" name="ID" value="@ViewData["OID"]" />
+        <input type="hidden" name="ChekTime" value="@ViewData["ChekTime"]" />
+        <div class="pageContent">
+            <div class="pageFormContent" layouth="54">
+                <fieldset>
+                    <legend>基本信息</legend>
+                    <p class="notfirst">
+                        <label>
+                            检测日期：
+                        </label>
+                        
+
+    <input name="PC_ChekTime" id="PC_ChekTime" value="@ViewData["PC_ChekTime"]"
+           class="date textInput readonly required" readonly="readonly" type="text" size="30"
+           title="请输入检测日期" />
+
+                     
+
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            进货数量：
+                        </label>
+                        <input name="PC_InGoodsNum" id="PC_InGoodsNum" value="@ViewData["PC_InGoodsNum"]" class="required digits" type="text" size="30"
+                               title="请输入进货数量" />
+
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            湿切片重量：
+                        </label>
+                        <input name="PC_WetSectionH" id="PC_WetSectionH" value="@ViewData["PC_WetSectionH"]" class="required number" type="text" size="30"
+                               title="请输入湿切片重量" />
+
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            H1：
+                        </label>
+                        <input name="PC_H1" id="PC_H1" value="@ViewData["PC_H1"]" class="required number" type="text" size="30"
+                               title="请输入H1" />
+
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            H2：
+                        </label>
+                        <input name="PC_H2" id="PC_H2" value="@ViewData["PC_H2"]" class="required number" type="text" size="30"
+                               title="请输入H2" />
+
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            水分：
+                        </label>
+                        <input name="PC_WaterCompent" id="PC_WaterCompent" value="@ViewData["PC_WaterCompent"]" class="required number" type="text" size="30"
+                               title="请输入水分" />
+
+                    </p>
+                </fieldset>
+                <fieldset>
+                    <legend>厂家信息</legend>
+                    <p class="notfirst">
+                        <label>
+                            检测水分：
+                        </label>
+                        <input name="PC_FCheckWater" id="PC_FCheckWater" value="@ViewData["PC_FCheckWater"]" class="required number" type="text" size="30"
+                               title="请输入检测水分" />
+
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            特殊粘度：
+                        </label>
+                        <input name="PC_FCheckSS" id="PC_FCheckSS" value="@ViewData["PC_FCheckSS"]" class="required number" type="text" size="30"
+                               title="请输入特殊粘度" />
+
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            百粒克重1：
+                        </label>
+                        <input name="PC_HundredW1" id="PC_HundredW1" value="@ViewData["PC_HundredW1"]" class="required number" type="text" size="30"
+                               title="请输入百粒克重1" />
+
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            百粒克重2：
+                        </label>
+                        <input name="PC_HundredW2" id="PC_HundredW2" value="@ViewData["PC_HundredW2"]" class="required number" type="text" size="30"
+                               title="请输入百粒克重2" />
+
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            产品批号：
+                        </label>
+                        <input name="PC_PCode" id="PC_PCode" value="@ViewData["PC_PCode"]" class="required" type="text" size="30"
+                               title="请输入产品批号" />
+
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            堆积密度：
+                        </label>
+                        <input name="PC_HeapUPD" id="PC_HeapUPD" value="@ViewData["PC_HeapUPD"]"  class="required" type="text" size="30"
+                               title="请输入堆积密度" />
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            熔点：
+                        </label>
+                        <input name="PC_MeltingP" id="PC_MeltingP" value="@ViewData["PC_MeltingP"]"  class="required digits" type="text" size="30"
+                               title="请输入熔点" />
+
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            生产厂家：
+                        </label>
+                        <input name="PC_FName" id="PC_FName" value="@ViewData["PC_FName"]"  class="required" type="text" size="30"
+                               title="请输入生产厂家" />
+
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            测试人：
+                        </label>
+                        <input name="PC_CheckUser" id="PC_CheckUser" value="@ViewData["PC_CheckUser"]" class="required" type="text" size="30"
+                               title="请输入测试人" />
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            备注：
+                        </label>
+                        <input name="PC_Remark" id="PC_Remark" value="@ViewData["PC_Remark"]"  class="required" type="text" size="30"
+                               title="请输入备注" />
+
+                    </p>
+                    </fieldset>
+            </div>
+            <div class="formBar">
+                <ul>
+                    <li>
+                        <span id="userInfoComplete" style="color: Red; visibility: hidden; height: 30px;
+                    line-height: 30px;"></span>
+                    </li>
+                    <li>
+                        <div class="buttonActive">
+                            <div class="buttonContent">
+                                <button type="submit" id="btnSubmit">
+                                    @(ViewData["OID"].ToString() == "0" ? "新增" : "提交")
+                                </button>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="button">
+                            <div class="buttonContent">
+                                <button type="button" class="close">
+                                    取消
+                                </button>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </form>
+</body>
+</html>

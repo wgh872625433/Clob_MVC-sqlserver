@@ -1,0 +1,146 @@
+﻿
+@{
+    Layout = null;
+}
+
+@model List<ClobDM_Model.Custome_Stand>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <div class="pageContent">
+        <div class="pageFormContent" layouth="56">
+            @foreach (var item in Model)
+            {
+                <fieldset>
+                    <legend>基本信息</legend>
+
+                    <dl>
+                        <dt>
+                            <label>
+                                标准名称：
+                            </label>
+                        </dt>
+                        <dd>
+                            @item.CS_Name
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>
+                            <label>
+                                厚度：
+                            </label>
+                        </dt>
+                        <dd>
+                            @item.CS_Deep
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>
+                            <label>
+                                厚度标准：
+                            </label>
+                        </dt>
+                        <dd>
+                            @item.CS_DeepS
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>
+                            <label>
+                                断裂强度标准纵：
+                            </label>
+                        </dt>
+                        <dd>
+                            @(item.CS_BreakPowerS1)
+                        </dd>
+
+                    </dl>
+                    <dl>
+                        <dt>
+                            <label>
+                                断裂强度标准横：
+                            </label>
+                        </dt>
+                        <dd>
+                            @(item.CS_BreakPowerS2)
+                        </dd>
+
+                    </dl>
+                    <dl>
+                        <dt>
+                            <label>
+                                断裂强度标准横单：
+                            </label>
+                        </dt>
+                        <dd>
+                            @(item.CS_BreakPowerS3)
+                        </dd>
+
+                    </dl>
+                    <dl>
+                        <dt>
+                            <label>
+                                变形率标准纵：
+                            </label>
+                        </dt>
+                        <dd>
+                            @(item.CS_deformation_rate1)
+                        </dd>
+
+                    </dl>
+                    <dl>
+                        <dt>
+                            <label>
+                                变形率标准纵单：
+                            </label>
+                        </dt>
+                        <dd>
+                            @(item.CS_deformation_rate2)
+                        </dd>
+
+                    </dl>
+                    <dl>
+                        <dt>
+                            <label>
+                                变形率标准横向：
+                            </label>
+                        </dt>
+                        <dd>
+                            @(item.CS_deformation_rate3)
+                        </dd>
+
+                    </dl>
+                    <dl>
+                        <dt>
+                            <label>
+                                创建时间：
+                            </label>
+                        </dt>
+                        <dd>
+                            @item.CreateTime.ToString("yyyy-MM-dd HH:mm:ss")
+                        </dd>
+                    </dl>
+
+                </fieldset>
+            }
+
+        </div>
+        <div class="formBar">
+            <ul>
+                <li>
+                    <div class="button">
+                        <div class="buttonContent">
+                            <button type="button" class="close">
+                                关闭
+                            </button>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,140 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>新增含固量</title>
+</head>
+<body>
+    <form method="post" class="pageForm required-validate"
+          action="/Stattis_Solid/CheckAdd" onsubmit="return validateCallback(this,dialogAjaxDone);">
+        <input type="hidden" name="id" value="@ViewData["OID"]" />
+        <input type="hidden" name="CreateTime" value="@ViewData["CreateTime"]" />
+        <div class="pageContent">
+            <div class="pageFormContent" layouth="54">
+                <fieldset>
+                    <legend>基本信息</legend>
+
+                    <p class="notfirst">
+                        <label>
+                            卷号：
+                        </label>
+                        <input name="juan_hao" id="juan_hao" value="@ViewData["juan_hao"]"
+                               class="required digits"  type="text" size="30"
+                               title="请输入检测日期" />
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            粘度：
+                        </label>
+                        <input name="zhang_d" id="zhang_d" value="@ViewData["zhang_d"]" class="required number" type="text" size="30"
+                               title="请输入进货数量" />
+
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            序号：
+                        </label>
+                        <input name="xu_hao" id="xu_hao" value="@ViewData["xu_hao"]" class="required digits" type="text" size="30"
+                               title="请输入抽测数量" />
+
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            坩埚重：
+                        </label>
+                        <input name="S_CrucibleFT" id="S_CrucibleFT" value="@ViewData["S_CrucibleFT"]" class="required number" type="text" size="30"
+                               title="请输入坩埚重" />
+
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            烘前总重：
+                        </label>
+                        <input name="S_CrucibleAT" id="S_CrucibleAT" value="@ViewData["S_CrucibleAT"]" class="required number" type="text" size="30"
+                               title="请输入烘前总重" />
+
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            含固量：
+                        </label>
+                        <input name="s_solidPer" id="s_solidPer" value="@ViewData["s_solidPer"]" readonly="readonly" class="required number" type="text" size="30"
+                               title="请输入含固量" />
+
+                    </p>
+                    <p class="nowrap">
+                        <div class="buttonContent">
+                            <button type="button" id="Button1" onclick="jisuan(1)">
+                                计算
+                            </button>
+                        </div>
+                    </p>
+                </fieldset>
+            </div>
+            <div class="formBar">
+                <ul>
+                    <li>
+                        <span id="userInfoComplete" style="color: Red; visibility: hidden; height: 30px;
+                    line-height: 30px;"></span>
+                    </li>
+                    <li>
+                        <div class="buttonActive">
+                            <div class="buttonContent">
+                                <button type="submit" id="btnSubmit">
+                                    @(ViewData["OID"].ToString() == "0" ? "新增" : "提交")
+                                </button>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="button">
+                            <div class="buttonContent">
+                                <button type="button" class="close">
+                                    取消
+                                </button>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </form>
+</body>
+</html>
+<script type="text/javascript">
+    //(G4-E4)/(F4-E4)*100
+    //var f1=烘后总重-坩埚重;
+    // var f2 = (烘前总重 - 坩埚重) * 100;
+    // var 含固量 = f1 / f2;
+    function jisuan(type) {
+        if (type == 1) {
+
+            var S_CrucibleW = $("#S_CrucibleW").val();
+            if (S_CrucibleW == "") {
+                alert('请输入坩埚重');
+                return false;
+            }
+            var S_CrucibleAT = $("#S_CrucibleAT").val();
+            if (S_CrucibleAT == "") {
+                alert('请输入烘后总重');
+                return false;
+            }
+            var S_CrucibleFT = $("#S_CrucibleFT").val();
+            if (S_CrucibleFT == "") {
+                alert('请输入烘前总重');
+                return false;
+            }
+            var f1 = (S_CrucibleAT - S_CrucibleW);
+            var f2 = (S_CrucibleFT - S_CrucibleW) / 100
+            var result = f1 / f2;
+
+            $("#s_solidPer").val(result.toFixed(2));
+        }
+
+    }
+
+</script>

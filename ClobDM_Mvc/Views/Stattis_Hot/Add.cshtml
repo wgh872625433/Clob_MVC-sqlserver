@@ -1,0 +1,256 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>热收缩计算</title>
+</head>
+<body>
+    <form method="post" class="pageForm required-validate"
+          action="/Stattis_Hot/CheckAdd" onsubmit="return validateCallback(this,dialogAjaxDone);">
+        <input type="hidden" name="id" value="@ViewData["OID"]" />
+        <input type="hidden" name="CreateTime" value="@ViewData["CreateTime"]" />
+        <div class="pageContent">
+            <div class="pageFormContent" layouth="54">
+                <fieldset>
+                    <legend>基本信息</legend>
+
+                    <p class="notfirst">
+                        <label>
+                            蓝号：
+                        </label>
+                        <input name="lan_hao" id="lan_hao" value="@ViewData["lan_hao"]"
+                               class="required digits" type="text" size="30"
+                               title="请输入蓝号" />
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            卷号：
+                        </label>
+                        <input name="juan_hao" id="juan_hao" value="@ViewData["juan_hao"]" class="required digits" type="text" size="30"
+                               title="请输入卷号" />
+
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            烘前：
+                        </label>
+                        <input name="hot_front" id="hot_front" value="@ViewData["hot_front"]" class="required number" type="text" size="30"
+                               title="请输入烘前" />
+
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            烘后总重：
+                        </label>
+                        <input name="hot_afterTotal" id="hot_afterTotal" value="@ViewData["hot_afterTotal"]" class="required number" type="text" size="30"
+                               title="请输入烘后总重" />
+
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            含水率：
+                        </label>
+                        <input name="Water_per" id="Water_per" value="@ViewData["Water_per"]" readonly="readonly" class="required number" type="text" size="30"
+                               title="请输入含水率" />
+
+                    </p>
+                    <p class="nowrap">
+                        <div class="buttonContent">
+                            <button type="button" id="Button1" onclick="jisuan(1)">
+                                计算
+                            </button>
+                        </div>
+                    </p>
+                   
+
+
+                 
+                </fieldset>
+                <fieldset>
+                    <legend>纵向信息</legend>
+                    <p class="notfirst">
+                        <label>
+                            纵向1：
+                        </label>
+                        <input name="release_d1" id="release_d1" value="@ViewData["release_d1"]" class="required number" type="text" size="30"
+                               title="请输入纵向1" />
+
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            纵向2：
+                        </label>
+                        <input name="release_d2" id="release_d2" value="@ViewData["release_d2"]" class="required number" type="text" size="30"
+                               title="请输入纵向2" />
+
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            纵向3：
+                        </label>
+                        <input name="release_d3" id="release_d3" value="@ViewData["release_d3"]" class="required number" type="text" size="30"
+                               title="请输入纵向3" />
+
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            纵向4：
+                        </label>
+                        <input name="release_d4" id="release_d4" readonly="readonly" value="@ViewData["release_d4"]" class="required number" type="text" size="30"
+                               title="请输入纵向4" />
+                    </p>
+                    <p class="nowrap">
+                        <div class="buttonContent">
+                            <button type="button" id="Button2" onclick="jisuan(2)">
+                                计算
+                            </button>
+                        </div>
+                    </p>
+                </fieldset>
+                <fieldset>
+                    <legend>横向信息</legend>
+                    <p class="notfirst">
+                        <label>
+                            横向1：
+                        </label>
+                        <input name="horizontal_d1" id="horizontal_d1" value="@ViewData["horizontal_d1"]" class="required number" type="text" size="30"
+                               title="请输入横向" />
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            横向2：
+                        </label>
+                        <input name="horizontal_d2" id="horizontal_d2" value="@ViewData["horizontal_d2"]" class="required number" type="text" size="30"
+                               title="请输入横向" />
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            横向3：
+                        </label>
+                        <input name="horizontal_d3" id="horizontal_d3" value="@ViewData["horizontal_d3"]" class="required number" type="text" size="30"
+                               title="请输入横向" />
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            横向4：
+                        </label>
+                        <input name="horizontal_d4" id="horizontal_d4" value="@ViewData["horizontal_d4"]" readonly="readonly" class="required number" type="text" size="30"
+                               title="请输入横向" />
+                    </p>
+                    <p class="nowrap">
+                        <div class="buttonContent">
+                            <button type="button" id="Button3" onclick="jisuan(3)">
+                                计算
+                            </button>
+                        </div>
+                    </p>
+                    </fieldset>
+                  </div>
+            <div class="formBar">
+                <ul>
+                    <li>
+                        <span id="userInfoComplete" style="color: Red; visibility: hidden; height: 30px;
+                    line-height: 30px;"></span>
+                    </li>
+                    <li>
+                        <div class="buttonActive">
+                            <div class="buttonContent">
+                                <button type="submit" id="btnSubmit">
+                                    @(ViewData["OID"].ToString() == "0" ? "新增" : "提交")
+                                </button>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="button">
+                            <div class="buttonContent">
+                                <button type="button" class="close">
+                                    取消
+                                </button>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </form>
+</body>
+</html>
+<script type="text/javascript">
+    function jisuan(type) {
+        if (type == 1) {
+            var hot_front = $("#hot_front").val();
+            if (hot_front == "") {
+                alert('请输入烘前');
+                return false;
+            }
+            var hot_afterTotal = $("#hot_afterTotal").val();
+            if (hot_afterTotal == "") {
+                alert('请输入烘后总');
+                return false;
+            }
+            var result1 = (hot_front - hot_afterTotal);
+
+            var result2 = hot_front * 100;
+
+            var waterPerce = result1 / result2;
+
+            $("#Water_per").val(waterPerce);
+        }
+        else if (type == 2) {
+
+            var release_d1 = $("#release_d1").val();
+            if (release_d1 == "") {
+                alert('请输入纵1');
+                return false;
+            }
+            var release_d2 = $("#release_d2").val();
+            if (release_d2 == "") {
+                alert('请输入纵2');
+                return false;
+            }
+            var release_d3 = $("#release_d3").val();
+            if (release_d3 == "") {
+                alert('请输入纵3');
+                return false;
+            }
+
+            // 纵向计算=(纵1+纵2+纵3)/3/250*100;
+            var result0 = release_d1 + release_d2 + release_d3;
+            var result1 = result0 / 3;
+            var percent = 250 * 100;
+            var result2 = result1 / percent;
+            $("#release_d4").val(result2);
+        }
+        else if (type == 3) {
+
+            var horizontal_d1 = $("#horizontal_d1").val();
+            if (horizontal_d1 == "") {
+                alert('请输入横1');
+                return false;
+            }
+            var horizontal_d2 = $("#horizontal_d2").val();
+            if (horizontal_d2 == "") {
+                alert('请输入横2');
+                return false;
+            }
+            var horizontal_d3 = $("#horizontal_d3").val();
+            if (horizontal_d3 == "") {
+                alert('请输入横3');
+                return false;
+            }
+
+            // 横向计算=(横1+横2+横3)/3/250*100;
+            var result0 = horizontal_d1 + horizontal_d2 + horizontal_d3;
+            var result1 = result0 / 3;
+            var percent = 250 * 100;
+            var result2 = result1 / percent;
+            $("#horizontal_d4").val(result2);
+        }
+    }
+</script>
+

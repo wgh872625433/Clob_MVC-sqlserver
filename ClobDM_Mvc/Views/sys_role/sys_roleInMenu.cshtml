@@ -1,0 +1,163 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>角色权限</title>
+</head>
+<body>
+    <div style="margin-bottom:20px;"> 
+    角色名称:@ViewData["RoleName"]
+    </div>
+    <div id="div_clob">
+              <ul>
+                  <input id="cbx_10000" name="checkbox" type="checkbox" value="10000" />
+                 全选
+                  <input id="cbx_10001" name="checkbox" type="checkbox" value="10001" />
+                聚酯切片
+                  <input id="cbx_10002" name="checkbox" type="checkbox" value="10002" />
+
+                热缩膜
+                  <input id="cbx_10003" name="checkbox" type="checkbox" value="10003" />
+                丙烯酸
+                  <input id="cbx_10004" name="checkbox" type="checkbox" value="10004" />
+                延伸剂
+                  <input id="cbx_10005" name="checkbox" type="checkbox" value="10005" />
+
+                拉伸膜
+                  <input id="cbx_10006" name="checkbox" type="checkbox" value="10006" />
+                纸管检测
+                  <input id="cbx_10007" name="checkbox" type="checkbox" value="10007" />
+                水性固化剂
+                  <input id="cbx_10008" name="checkbox" type="checkbox" value="10008" />
+                淀粉检测
+                  <input id="cbx_10009" name="checkbox" type="checkbox" value="10009" />
+                煤炭检测
+             
+           </ul>
+    </div>
+
+    <div  id="div_customs">
+        <ul>
+            <input id="cbx_20000" name="checkbox" type="checkbox" value="20000" />
+            全选
+            <input id="cbx_20001" name="checkbox" type="checkbox" value="20001" />
+            客户标准
+          
+        </ul>
+    </div>
+
+    <div id="div_statis">
+        <ul>
+            <input id="cbx_30000" name="checkbox" type="checkbox" value="30000" /> 全选
+            <input id="cbx_30001" name="checkbox"  type="checkbox" value="30001" />
+            热缩膜计算
+            <input id="cbx_30002" name="checkbox" type="checkbox" value="30002" />
+            含固量计算
+            <input id="cbx_30003" name="checkbox" type="checkbox" value="30003" />
+            胎基布生产质量日报表
+            <input id="cbx_30004" name="checkbox" type="checkbox" value="30004" />
+            克重厚度计算
+        </ul>
+    </div>
+
+    <div id="sys_config">
+        <ul>
+            <input id="cbx_40000" name="checkbox" type="checkbox" value="40000" />
+            全选
+            <input id="cbx_40001" name="checkbox" type="checkbox" value="40001" />
+            用户管理
+            <input id="cbx_40002" name="checkbox" type="checkbox" value="40002" />
+            角色管理
+          
+        </ul>
+    </div>
+
+    <div id="sys_button" style=" margin-top:50px;">
+        <ul>
+           <input type="button" value="提交" id="btnSave" onclick="menuRoleList.AddRoleMenu()" />
+        </ul>
+    </div>
+</body>
+<input type="hidden" id="OID"  value="@ViewData["OID"]"/>
+</html>
+
+<script type="text/javascript">
+
+
+    var all1 = document.getElementById('cbx_10000');
+    var box1 = document.getElementById('div_clob').getElementsByTagName("input");
+    all1.onchange = function () {
+        var chk = this.checked;
+        for (var i = 0; i < box1.length; i++) {
+            box1[i].checked = chk;
+        }
+    }
+
+
+   // $("#cbx_10001").prop("checked", true);
+
+
+    //$('input[name="selectall"]').click(function () {
+    //    //alert(this.checked);
+    //    if ($(this).is(':checked')) {
+    //        $('input[name="stuCheckBox"]').each(function () {
+    //            //此处如果用attr，会出现第三次失效的情况
+    //            $(this).prop("checked", true);
+    //        });
+    //    } else {
+    //        $('input[name="stuCheckBox"]').each(function () {
+    //            $(this).removeAttr("checked", false);
+    //        });
+    //    }
+
+    //});
+
+
+    var all2 = document.getElementById('cbx_20000');
+    var box2 = document.getElementById('div_customs').getElementsByTagName("input");
+    all2.onchange = function () {
+        var chk = this.checked;
+        for (var i = 0; i < box2.length; i++) {
+            box2[i].checked = chk;
+        }
+    }
+
+
+    var all3 = document.getElementById('cbx_30000');
+    var box3 = document.getElementById('div_statis').getElementsByTagName("input");
+    all3.onchange = function () {
+        var chk = this.checked;
+        for (var i = 0; i < box3.length; i++) {
+            box3[i].checked = chk;
+        }
+    }
+
+
+    var all4 = document.getElementById('cbx_40000');
+    var box4 = document.getElementById('sys_config').getElementsByTagName("input");
+    all4.onchange = function(){
+        var chk = this.checked;
+        for (var i = 0; i < box4.length; i++) {
+            box4[i].checked = chk;
+        }
+    }
+
+    var menuRoleList = {
+        AddRoleMenu: function ()
+        {
+
+            var ids = ",";
+            $("input[name='checkbox']:checked").each(function (i) {
+                ids += $(this).val() + ",";
+               
+            })
+            alert("ids:"+ids);
+        }
+    }
+</script>

@@ -1,0 +1,220 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>新增</title>
+</head>
+<body>
+    <form method="post" class="pageForm required-validate"
+          action="/Heat_shrinkf/CheckAdd" onsubmit="return validateCallback(this,dialogAjaxDone);">
+        <input type="hidden" name="id" value="@ViewData["OID"]" />
+        <input type="hidden" name="CreateTime" value="@ViewData["CreateTime"]" />
+        <div class="pageContent">
+            <div class="pageFormContent" layouth="54">
+                <fieldset>
+                    <legend>基本信息</legend>
+                    <p class="notfirst">
+                        <label>
+                            来货日期：
+                        </label>
+                        <input name="HS_InTime" id="HS_InTime" value="@ViewData["HS_InTime"]" class="date textInput readonly required" readonly="readonly" type="text" size="30"
+                               title="请输入来货日期" />
+
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            进货数量：
+                        </label>
+                        <input name="HS_InGoodsNum" id="HS_InGoodsNum" value="@ViewData["HS_InGoodsNum"]" class="required digits" type="text" size="30"
+                               title="请输入进货数量" />
+
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            产品规格：
+                        </label>
+                        <input name="HS_Pstandard" id="HS_Pstandard" value="@ViewData["HS_Pstandard"]" class="required" type="text" size="30"
+                               title="请输入产品规格" />
+
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            克重：
+                        </label>
+                        <input name="HS_gm" id="HS_gm" value="@ViewData["HS_gm"]"  class="required number" type="text" size="30"
+                               title="请输入克重" />
+
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            厚度：
+                        </label>
+                        <input name="HS_mm" id="HS_mm" value="@ViewData["HS_mm"]" class="required number" type="text" size="30"
+                               title="请输入厚度" />
+
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            宽度：
+                        </label>
+                        <input name="HS_ww" id="HS_ww" value="@ViewData["HS_ww"]"  class="required digits" type="text" size="30"
+                               title="请输入宽度" />
+
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            拉伸强度(纵)：
+                        </label>
+                        <input name="HS_drawSMD" id="HS_drawSMD" value="@ViewData["HS_drawSMD"]" class="required number" type="text" size="30"
+                               title="请输入拉伸强度" />
+
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            拉伸强度(横)：
+                        </label>
+                        <input name="HS_drawSMC" id="HS_drawSMC" value="@ViewData["HS_drawSMC"]" class="required number" type="text" size="30"
+                               title="请输入拉伸强度" />
+
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            断裂伸长率(纵)：
+                        </label>
+                        <input name="HS_disruptED" id="HS_disruptED" value="@ViewData["HS_disruptED"]" class="required number" type="text" size="30"
+                               title="请输入断裂伸长率" />
+
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            断裂伸长率(横)：
+                        </label>
+                        <input name="HS_disruptEC" id="HS_disruptEC" value="@ViewData["HS_disruptEC"]" class="required number" type="text" size="30"
+                               title="请输入产品规格" />
+
+                    </p>
+                </fieldset>
+                <fieldset>
+                    <legend>厂家信息</legend>
+                    <p class="notfirst">
+                        <label>
+                            厚度：
+                        </label>
+                        <input name="HS_Fmm" id="HS_Fmm" value="@ViewData["HS_Fmm"]" class="required number" type="text" size="30"
+                               title="请输入厚度" />
+
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            宽度：
+                        </label>
+                        <input name="HS_Fww" id="HS_Fww" value="@ViewData["HS_Fww"]" class="required digits" type="text" size="30"
+                               title="请输入宽度" />
+
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            拉伸强度(纵)：
+                        </label>
+                        <input name="HS_drawSMD" id="HS_drawSMD" value="@ViewData["HS_drawSMD"]" class="required number" type="text" size="30"
+                               title="请输入拉伸强度" />
+
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            拉伸强度(横)：
+                        </label>
+                        <input name="HS_drawSMC" id="HS_drawSMC" value="@ViewData["HS_drawSMC"]" class="required number" type="text" size="30"
+                               title="请输入拉伸强度" />
+
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            断裂标称应变(纵)：
+                        </label>
+                        <input name="HS_FdisruptED" id="HS_FdisruptED" value="@ViewData["HS_FdisruptED"]" class="required number" type="text" size="30"
+                               title="请输入断裂标称应变" />
+
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            断裂标称应变(横)：
+                        </label>
+                        <input name="HS_FdisruptEC" id="HS_FdisruptEC" value="@ViewData["HS_FdisruptEC"]" class="required number" type="text" size="30"
+                               title="请输入断裂标称应变" />
+
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            颜色：
+                        </label>
+                        <input name="HS_FColor" id="HS_FColor" value="@ViewData["HS_FColor"]" class="required" type="text" size="30"
+                               title="请输入颜色" />
+
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            生产日期：
+                        </label>
+                        <input name="HS_FAddTime" id="HS_FAddTime" value="@ViewData["HS_FAddTime"]" 
+                               class="date textInput readonly required" readonly="readonly" type="text" size="30"
+                               title="请输入生产日期" />
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            生产厂家：
+                        </label>
+                        <input name="HS_FName" id="HS_FName" value="@ViewData["HS_FName"]" class="required" type="text" size="30"
+                               title="请输入进货数量" />
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            合格与否：
+                        </label>
+                        <input name="HS_FIsPass" id="HS_FIsPass" value="@ViewData["HS_FIsPass"]" class="required" type="text" size="30"
+                               title="请输入合格与否量" />
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            备注：
+                        </label>
+                        <input name="HS_FRemark" id="HS_FRemark" value="@ViewData["HS_FRemark"]" class="required" type="text" size="30"
+                               title="请输入备注" />
+                    </p>
+                </fieldset>
+              </div>
+            <div class="formBar">
+                <ul>
+                    <li>
+                        <span id="userInfoComplete" style="color: Red; visibility: hidden; height: 30px;
+                    line-height: 30px;"></span>
+                    </li>
+                    <li>
+                        <div class="buttonActive">
+                            <div class="buttonContent">
+                                <button type="submit" id="btnSubmit">
+                                    @(ViewData["OID"].ToString() == "0" ? "新增" : "提交")
+                                </button>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="button">
+                            <div class="buttonContent">
+                                <button type="button" class="close">
+                                    取消
+                                </button>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </form>
+</body>
+</html>
+

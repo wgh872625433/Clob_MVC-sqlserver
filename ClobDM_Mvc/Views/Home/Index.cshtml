@@ -1,0 +1,108 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>小五登录</title>
+    <script src="/js/jquery-1.8.3.js" type="text/javascript"></script>
+    <link href="/dwzui/themes/css/login.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div id="login">
+        <div id="login_header">
+            <h1 class="login_logo">
+           
+            </h1>
+            <div class="login_headerContent">
+                <div class="navList">
+                </div>
+                <h2 class="login_title">
+                 
+
+                </h2>
+            </div>
+        </div>
+        <div id="login_content">
+            <div class="loginForm">
+                <form>
+                    <p>
+                        <label>
+                            用户名：
+                        </label>
+                        <input type="text" id="username" name="username" size="20" class="login_input" />
+                    </p>
+                    <p>
+                        <label>
+                            密码：
+                        </label>
+                        <input type="password" id="password" name="password" size="20" class="login_input" />
+                    </p>
+                    <div class="login_bar">
+                        <input class="sub" type="button" value=" " onclick="indexList.DoLogin()" />
+                    </div>
+                </form>
+            </div>
+            <div class="login_banner">
+                <img src="/dwzui/themes/default/images/login_banner.jpg" />
+            </div>
+            <div class="login_main">
+            </div>
+        </div>
+        <div id="login_footer">
+            Copyright &copy; 2020 小五测试系统 All Rights Reserved.
+        </div>
+    </div>
+</body>
+</html>
+<script type="text/javascript">
+    var indexList = {
+        DoLogin: function () {
+            var username = $("#username").val();
+            var password = $("#password").val();
+            if (username == "") {
+                alert('请输入用户名');
+                return;
+            }
+            if (password == "") {
+                alert('请输入密码');
+                return;
+            }
+
+            if (username != null && password != null)
+            {
+                location.href = "/Main/Index";
+                return;
+            }
+
+
+            $.ajax({
+                url: "/Handler/Login.ashx",
+                type: "POST",
+                data: { 'username': username, 'password': password },
+                success: function (result) {
+                    var data = result.split(',');
+                    if (data != null && data[0] == "success") {
+                        location.href = "index.aspx";
+                        return;
+                    }
+                    else {
+                        alert(data[1]);
+                        return;
+                    }
+                },
+                error: function (msg) {
+
+                    alert(msg);
+                }
+            })
+
+        }
+
+    }
+
+</script>
+

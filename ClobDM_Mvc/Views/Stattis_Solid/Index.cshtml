@@ -1,0 +1,135 @@
+﻿
+@{
+    Layout = null;
+}
+@model List<ClobDM_Model.Stattis_Solid>
+
+<html>
+<head>
+    <title>热收缩</title>
+</head>
+<body>
+    <form id="pagerForm" method="post" action="@Url.Action("Index")">
+        <input type="hidden" name="pageNum" value="@ViewData["pageIndex"]" />
+        <input type="hidden" name="numPerPage" value="@ViewData["pageSize"]" />
+        <input name="CreateTime" id="CreateTime" type="hidden" value="@ViewData["CreateTime"]" />
+    </form>
+    <div class="pageHeader">
+        <form onsubmit="return navTabSearch(this);" action="@Url.Action("Index")" method="post">
+            <div class="searchBar">
+                <ul class="searchContent">
+                    <li>
+                        <label>
+                            卷号：
+                        </label>
+                        <input name="juan_hao" type="text" value="@ViewData["juan_hao"]" />
+                    </li>
+                </ul>
+                <div class="subBar">
+                    <ul>
+                        <li>
+                            <div class="buttonActive">
+                                <div class="buttonContent">
+                                    <button type="submit">
+                                        检索
+                                    </button>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="pageContent">
+        <div class="panelBar">
+            <ul class="toolBar">
+                <li><a class="add" href="/Stattis_Solid/Add" mask="false" width="1000" height="350" target="dialog" rel="AddStattis_Solid"><span>添加含固量</span></a></li>
+                @*<li>
+                    <a class="icon" onclick="Stattis_Solid.ExportExcel()"><span>导出查询数据</span></a>
+                </li>*@
+                <li class="line">line</li>
+            </ul>
+        </div>
+        <table class="table" width="100%" layouth="138">
+            <thead>
+                <tr>
+                    <th width="40">
+                        <input type="checkbox" group="ids" class="checkboxCtrl">
+                    </th>
+                    <th>
+                        编号
+                    </th>
+                    <th>
+                        卷号
+                    </th>
+                    <th>
+                        粘度
+                    </th>
+                    <th>
+                        序号
+                    </th>
+                    <th>
+                        坩埚重
+                    </th>
+                    <th>
+                        烘前总重
+                    </th>
+                    <th>
+                        烘后总重
+                    </th>
+                    <th>
+                        含固量
+                    </th>
+                    <th>
+                        创建时间
+                    </th>
+                    <th width="120">
+                        操作
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            <input name="ids" type="checkbox" value="@item.ID" />
+                        </td>
+                        <td>@item.ID</td>
+                        <td>@item.juan_hao</td>
+                        <td>@item.zhang_d</td>
+                        <td>@item.xu_hao</td>
+                        <td>@item.S_CrucibleW</td>
+                        <td>@item.S_CrucibleFT</td>
+                        <td>@item.S_CrucibleAT</td>
+                        <td>@item.s_solidPer</td>
+                        <td>@item.CreateTime</td>
+                        <td width="120">
+                            <a title="查看" target="dialog" href="/Stattis_Solid/Detail?OID=@item.ID" mask="false" width="1000" height="550" class="btnInfo">详情</a>
+                        </td>
+
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <div class="panelBar">
+            <div class="pages">
+                <span>每页20条，共 @ViewData["recordCount"] 条</span>
+            </div>
+            <div class="pagination" targettype="navTab" totalcount="@ViewData["recordCount"]" numperpage="@ViewData["pageSize"]" pagenumshown="10"
+                 currentpage="@ViewData["pageIndex"]">
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        var Stattis_Solid = {
+            ExportExcel: function () {
+                var S_username = $("#S_username").val();
+                var S_realName = $("#S_realName").val();
+                window.location.href = "/Stattis_Solid/Export/?S_username=" + S_username + "&S_realName=" + S_realName + "";
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,185 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>新增丙烯酸</title>
+</head>
+<body>
+    <form method="post" class="pageForm required-validate"
+          action="/Acroleic_acid/CheckAdd" onsubmit="return validateCallback(this,dialogAjaxDone);">
+        <input type="hidden" name="id" value="@ViewData["OID"]" />
+        <input type="hidden" name="CreateTime" value="@ViewData["CreateTime"]" />
+        <div class="pageContent">
+            <div class="pageFormContent" layouth="54">
+                <fieldset>
+                    <legend>基本信息</legend>
+
+                    <p class="notfirst">
+                        <label>
+                            检测日期：
+                        </label>
+                        <input name="AA_CheckTime" id="AA_CheckTime" value="@ViewData["AA_CheckTime"]"
+                               class="date textInput readonly required" readonly="readonly" type="text" size="30"
+                               title="请输入检测日期" />
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            进货数量：
+                        </label>
+                        <input name="AA_InGoodNums" id="AA_InGoodNums" value="@ViewData["AA_InGoodNums"]" class="required digits" type="text" size="30"
+                               title="请输入进货数量" />
+
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            抽测数量：
+                        </label>
+                        <input name="AA_CheckGoodNums" id="AA_CheckGoodNums" value="@ViewData["AA_CheckGoodNums"]" class="required digits" type="text" size="30"
+                               title="请输入抽测数量" />
+
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            坩埚重：
+                        </label>
+                        <input name="AA_CrucibleW" id="AA_CrucibleW" value="@ViewData["AA_CrucibleW"]" class="required number" type="text" size="30"
+                               title="请输入坩埚重" />
+
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            拱前总重：
+                        </label>
+                        <input name="AA_ArchFTW1" id="AA_ArchFTW1" value="@ViewData["AA_ArchFTW1"]" class="required number" type="text" size="30"
+                               title="请输入拱前总重" />
+
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            拱后总重：
+                        </label>
+                        <input name="AA_ArchFTW2" id="AA_ArchFTW2" value="@ViewData["AA_ArchFTW2"]" class="required number" type="text" size="30"
+                               title="请输入拱后总重" />
+
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            含固量：
+                        </label>
+                        <input name="AA_solid" id="AA_solid" value="@ViewData["AA_solid"]" class="required number" type="text" size="30"
+                               title="请输入含固量" />
+
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            平均值：
+                        </label>
+                        <input name="AA_avg" id="AA_avg" value="@ViewData["AA_avg"]" class="required number" type="text" size="30"
+                               title="请输入平均值" />
+
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            PH值：
+                        </label>
+                        <input name="AA_PH" id="AA_PH" value="@ViewData["AA_PH"]" class="required digits" type="text" size="30"
+                               title="请输入PH值" />
+                    </p>
+                </fieldset>
+                <fieldset>
+                    <legend>厂家信息</legend>
+                    <p class="notfirst">
+                        <label>
+                            含固量：
+                        </label>
+                        <input name="AA_Fsolid" id="AA_Fsolid" value="@ViewData["AA_Fsolid"]" class="required number" type="text" size="30"
+                               title="请输入含固量" />
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            PH值：
+                        </label>
+                        <input name="AA_FPH" id="AA_FPH" value="@ViewData["AA_FPH"]" class="required digits" type="text" size="30"
+                               title="请输入PH值" />
+
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            生产日期：
+                        </label>
+                        <input name="AA_AddTime" id="AA_AddTime" value="@ViewData["AA_AddTime"]"
+                               class="date textInput readonly required" readonly="readonly" type="text" size="30"
+                               title="请输入生产日期" />
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            生产厂家：
+                        </label>
+                        <input name="AA_FName" id="AA_FName" value="@ViewData["AA_FName"]" class="required" type="text" size="30"
+                               title="请输入生产厂家" />
+
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            合格与否：
+                        </label>
+                        <input name="AA_FIsPass" id="AA_FIsPass" value="@ViewData["AA_FIsPass"]" class="required" type="text" size="30"
+                               title="请输入合格与否" />
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            检测员：
+                        </label>
+                        <input name="AA_FCheckUID" id="AA_FCheckUID" value="@ViewData["AA_FCheckUID"]" class="required" type="text" size="30"
+                               title="请输入检测员" />
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            各月份合格率情况：
+                        </label>
+                        <input name="AA_FPassMsg" id="AA_FPassMsg" value="@ViewData["AA_FPassMsg"]" class="required" type="text" size="30"
+                               title="请输入各月份合格率情况" />
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            备注：
+                        </label>
+                        <input name="AA_FRemark" id="AA_FRemark" value="@ViewData["AA_FRemark"]" class="required" type="text" size="30"
+                               title="请输入备注" />
+                    </p>
+                </fieldset>
+            </div>
+            <div class="formBar">
+                <ul>
+                    <li>
+                        <span id="userInfoComplete" style="color: Red; visibility: hidden; height: 30px;
+                    line-height: 30px;"></span>
+                    </li>
+                    <li>
+                        <div class="buttonActive">
+                            <div class="buttonContent">
+                                <button type="submit" id="btnSubmit">
+                                    @(ViewData["OID"].ToString() == "0" ? "新增" : "提交")
+                                </button>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="button">
+                            <div class="buttonContent">
+                                <button type="button" class="close">
+                                    取消
+                                </button>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </form>
+</body>
+</html>

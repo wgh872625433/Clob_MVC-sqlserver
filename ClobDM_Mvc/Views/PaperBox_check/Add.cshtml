@@ -1,0 +1,204 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>新增纸管检测</title>
+</head>
+<body>
+    <form method="post" class="pageForm required-validate"
+          action="/PaperBox_check/CheckAdd" onsubmit="return validateCallback(this,dialogAjaxDone);">
+        <input type="hidden" name="id" value="@ViewData["OID"]" />
+        <input type="hidden" name="CreateTime" value="@ViewData["CreateTime"]" />
+
+        <div class="pageContent">
+            <div class="pageFormContent" layouth="54">
+                <fieldset>
+                    <legend>基本信息</legend>
+
+                    <p class="notfirst">
+                        <label>
+                            检测日期：
+                        </label>
+                        <input name="PBC_CheckTime" id="PBC_CheckTime" value="@ViewData["PBC_CheckTime"]"
+
+                               class="date textInput readonly required" readonly="readonly" type="text" size="30"
+                               title="请输入检测日期" />
+
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            规格：
+                        </label>
+                        <input name="PBC_Stand" id="PBC_Stand" value="@ViewData["PBC_Stand"]" class="required" type="text" size="30"
+                               title="请输入规格" />
+
+                    </p>
+
+
+                    <p class="notfirst">
+                        <label>
+                            内径：
+                        </label>
+                        <input name="PBC_mm" id="PBC_mm" value="@ViewData["PBC_mm"]"  class="required" type="text" size="30"
+                               title="请输入内径" />
+
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            壁厚：
+                        </label>
+                        <input name="PBC_mm1" id="PBC_mm1" value="@ViewData["PBC_mm1"]"  class="required" type="text" size="30"
+                               title="请输入壁厚" />
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            长度：
+                        </label>
+                        <input name="PBC_mm2" id="PBC_mm2" value="@ViewData["PBC_mm2"]"  class="required" type="text" size="30"
+                               title="请输入长度" />
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            压溃力平均值：
+                        </label>
+                        <input name="PBC_PressAvg" id="PBC_PressAvg" value="@ViewData["PBC_PressAvg"]" class="required digits" type="text" size="30"
+                               title="请输入压溃力平均值" />
+                    </p>
+
+                    <p class="notfirst">
+                        <label>
+                            压溃力最小值：
+                        </label>
+                        <input name="PBC_PressMin" id="PBC_PressMin" value="@ViewData["PBC_PressMin"]" class="required digits" type="text" size="30"
+                               title="请输入压溃力最小值" />
+                    </p>
+
+                    <p class="notfirst">
+                        <label>
+                            压溃力最大值：
+                        </label>
+                        <input name="PBC_PressMax" id="PBC_PressMax" value="@ViewData["PBC_PressMax"]" class="required digits" type="text" size="30"
+                               title="请输入压溃力最大值" />
+                    </p>
+
+                </fieldset>
+                <fieldset>
+                    <legend>厂家信息</legend>
+                    <p class="notfirst">
+                        <label>
+                            内径：
+                        </label>
+                        <input name="PBC_Fmm" id="PBC_Fmm" value="@ViewData["PBC_Fmm"]" class="required number" type="text" size="30"
+                               title="请输入内径" />
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            壁厚：
+                        </label>
+                        <input name="PBC_Fmm1" id="PBC_Fmm1" value="@ViewData["PBC_Fmm1"]" class="required number" type="text" size="30"
+                               title="请输入壁厚" />
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            长度：
+                        </label>
+                        <input name="PBC_Fmm2" id="PBC_Fmm2" value="@ViewData["PBC_Fmm2"]" class="required digits" type="text" size="30"
+                               title="请输入长度" />
+                    </p>
+
+
+                    <p class="notfirst">
+                        <label>
+                            压溃力：
+                        </label>
+                        <input name="PBC_FPressP" id="PBC_FPressP" value="@ViewData["PBC_FPressP"]" class="required digits" type="text" size="30"
+                               title="请输入压溃力" />
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            进货数量：
+                        </label>
+                        <input name="PBC_FInGoodNums" id="PBC_FInGoodNums" value="@ViewData["PBC_FInGoodNums"]" class="required digits" type="text" size="30"
+                               title="请输入进货数量" />
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            抽测数量：
+                        </label>
+                        <input name="PBC_FCheckGoodNums" id="PBC_FCheckGoodNums" value="@ViewData["PBC_FCheckGoodNums"]" class="required digits" type="text" size="30"
+                               title="请输入抽测数量" />
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            生产厂家：
+                        </label>
+                        <input name="PBC_FName" id="PBC_FName" value="@ViewData["PBC_FName"]" class="required" type="text" size="30"
+                               title="请输入生产厂家" />
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            质量情况：
+                        </label>
+                        <input name="PBC_FQualityMsg" id="PBC_FQualityMsg" value="@ViewData["PBC_FQualityMsg"]" class="required" type="text" size="30"
+                               title="请输入质量情况" />
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            测试人：
+                        </label>
+                        <input name="PBC_FCheckUID" id="PBC_FCheckUID" value="@ViewData["PBC_FCheckUID"]" class="required" type="text" size="30"
+                               title="请输入测试人" />
+                    </p>
+
+                    <p class="notfirst">
+                        <label>
+                            备注：
+                        </label>
+                        <input name="PBC_FRemark" id="PBC_FRemark" value="@ViewData["PBC_FRemark"]" class="required" type="text" size="30"
+                               title="请输入备注" />
+                    </p>
+
+                    <p class="notfirst">
+                        <label>
+                            各月份合格率情况：
+                        </label>
+                        <input name="PBC_FIsPassMsg" id="PBC_FIsPassMsg" value="@ViewData["PBC_FIsPassMsg"]" class="required" type="text" size="30"
+                               title="请输入各月份合格率情况" />
+                    </p>
+
+                </fieldset>
+            </div>
+            <div class="formBar">
+                <ul>
+                    <li>
+                        <span id="userInfoComplete" style="color: Red; visibility: hidden; height: 30px;
+                    line-height: 30px;"></span>
+                    </li>
+                    <li>
+                        <div class="buttonActive">
+                            <div class="buttonContent">
+                                <button type="submit" id="btnSubmit">
+                                    @(ViewData["OID"].ToString() == "0" ? "新增" : "提交")
+                                </button>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="button">
+                            <div class="buttonContent">
+                                <button type="button" class="close">
+                                    取消
+                                </button>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </form>
+</body>
+</html>

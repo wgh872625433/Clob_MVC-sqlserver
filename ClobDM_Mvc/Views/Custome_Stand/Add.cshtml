@@ -1,0 +1,123 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>新增客户标准</title>
+</head>
+<body>
+    <form method="post" class="pageForm required-validate"
+          action="/Custome_Stand/CheckAdd" onsubmit="return validateCallback(this,dialogAjaxDone);">
+        <input type="hidden" name="id" value="@ViewData["OID"]" />
+        <input type="hidden" name="CreateTime" value="@ViewData["CreateTime"]" />
+        <div class="pageContent">
+            <div class="pageFormContent" layouth="54">
+                <fieldset>
+                    <legend>基本信息</legend>
+
+                    <p class="notfirst">
+                        <label>
+                            标准名称：
+                        </label>
+                        <input name="CS_Name" id="CS_Name" value="@ViewData["CS_Name"]"
+                               class="required" type="text" size="30"
+                               title="请输入标准名称" />
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            厚度：
+                        </label>
+                        <input name="CS_Deep" id="CS_Deep" value="@ViewData["CS_Deep"]"  class="required number" type="text" size="30"
+                               title="请输入厚度" />
+
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            厚度标准：
+                        </label>
+                        <input name="CS_DeepS" id="CS_DeepS" value="@ViewData["CS_DeepS"]" class="required number" type="text" size="30"
+                               title="请输入厚度标准" />
+
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            断裂强度标准纵：
+                        </label>
+                        <input name="CS_BreakPowerS1" id="CS_BreakPowerS1" value="@ViewData["CS_BreakPowerS1"]" class="required digits" type="text" size="30"
+                               title="请输入断裂强度标准纵" />
+
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            断裂强度标准横：
+                        </label>
+                        <input name="CS_BreakPowerS2" id="CS_BreakPowerS2" value="@ViewData["CS_BreakPowerS2"]" class="required digits" type="text" size="30"
+                               title="请输入断裂强度标准横" />
+
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            断裂强度标准横单：
+                        </label>
+                        <input name="CS_BreakPowerS3" id="CS_BreakPowerS3" value="@ViewData["CS_BreakPowerS3"]" class="required digits" type="text" size="30"
+                               title="请输入断裂强度标准横单" />
+
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            变形率标准纵：
+                        </label>
+                        <input name="CS_deformation_rate1" id="CS_deformation_rate1" value="@ViewData["CS_deformation_rate1"]" class="required digits" type="text" size="30"
+                               title="请输入变形率标准纵" />
+
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            变形率标准纵单：
+                        </label>
+                        <input name="CS_deformation_rate2" id="CS_deformation_rate2" value="@ViewData["CS_deformation_rate2"]" class="required digits" type="text" size="30"
+                               title="请输入变形率标准纵单" />
+
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            变形率标准横向：
+                        </label>
+                        <input name="CS_deformation_rate3" id="CS_deformation_rate3" value="@ViewData["CS_deformation_rate3"]" class="required digits" type="text" size="30"
+                               title="请输入变形率标准横向" />
+                    </p>
+                </fieldset>
+            </div>
+            <div class="formBar">
+                <ul>
+                    <li>
+                        <span id="userInfoComplete" style="color: Red; visibility: hidden; height: 30px;
+                    line-height: 30px;"></span>
+                    </li>
+                    <li>
+                        <div class="buttonActive">
+                            <div class="buttonContent">
+                                <button type="submit" id="btnSubmit">
+                                    @(ViewData["OID"].ToString() == "0" ? "新增" : "提交")
+                                </button>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="button">
+                            <div class="buttonContent">
+                                <button type="button" class="close">
+                                    取消
+                                </button>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </form>
+</body>
+</html>

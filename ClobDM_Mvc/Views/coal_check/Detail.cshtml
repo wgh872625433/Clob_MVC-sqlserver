@@ -1,0 +1,319 @@
+﻿
+@{
+    Layout = null;
+}
+
+@model List<ClobDM_Model.coal_check>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <div class="pageContent">
+        <div class="pageFormContent" layouth="56">
+            @foreach (var item in Model)
+            {
+                <fieldset>
+                    <legend>基本信息</legend>
+
+                    <dl>
+                        <dt>
+                            <label>
+                                日期：
+                            </label>
+                        </dt>
+                        <dd>
+                            @item.CC_CheckTime
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>
+                            <label>
+                                全水分：
+                            </label>
+                        </dt>
+                        <dd>
+                            @item.CC_AWcomponent
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>
+                            <label>
+                                分析基水分：
+                            </label>
+                        </dt>
+                        <dd>
+                            @item.CC_AnalyseSW
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>
+                            <label>
+                                灰分：
+                            </label>
+                        </dt>
+                        <dd>
+                            @item.CC_GreyC
+                        </dd>
+
+                    </dl>
+                    <dl>
+                        <dt>
+                            <label>
+                                挥发分：
+                            </label>
+                        </dt>
+                        <dd>
+                            @item.CC_VolatilizeC
+                        </dd>
+
+                    </dl>
+                    <dl>
+                        <dt>
+                            <label>
+                                固定碳：
+                            </label>
+                        </dt>
+                        <dd>
+                            @item.CC_Carbon
+                        </dd>
+
+                    </dl>
+                    <dl>
+                        <dt>
+                            <label>
+                                全磷：
+                            </label>
+                        </dt>
+                        <dd>
+                            @item.CC_Aphosphor
+                        </dd>
+
+                    </dl>
+                    <dl>
+                        <dt>
+                            <label>
+                                磷渣特征：
+                            </label>
+                        </dt>
+                        <dd>
+                            @item.CC_PhosphorS
+                        </dd>
+
+                    </dl>
+                    <dl>
+                        <dt>
+                            <label>
+                                干基高位发热量：
+                            </label>
+                        </dt>
+                        <dd>
+                            @item.CC_Hcalorific
+                        </dd>
+                    </dl>
+
+                    <dl>
+                        <dt>
+                            <label>
+                                收到基低位发热量：
+                            </label>
+                        </dt>
+                        <dd>
+                            @item.CC_RLcalorific
+                        </dd>
+                    </dl>
+
+                    <dl>
+                        <dt>
+                            <label>
+                                测试人：
+                            </label>
+                        </dt>
+                        <dd>
+                            @item.CC_CheckUID
+                        </dd>
+                    </dl>
+
+                    <dl>
+                        <dt>
+                            <label>
+                                备注：
+                            </label>
+                        </dt>
+                        <dd>
+                            @item.CC_Remark
+                        </dd>
+                    </dl>
+
+                    <dl>
+                        <dt>
+                            <label>
+                                合格与否：
+                            </label>
+                        </dt>
+                        <dd>
+                            @item.CC_IsPass
+                        </dd>
+                    </dl>
+
+                    <dl>
+                        <dt>
+                            <label>
+                                各月份合格率情况：
+                            </label>
+                        </dt>
+                        <dd>
+                            @item.CC_IsPassMsg
+                        </dd>
+                    </dl>
+
+                    <dl>
+                        <dt>
+                            <label>
+                                创建时间：
+                            </label>
+                        </dt>
+                        <dd>
+                            @item.CreateTime.ToString("yyyy-MM-dd HH:mm:ss")
+                        </dd>
+                    </dl>
+
+                </fieldset>
+
+                <fieldset>
+                    <legend>厂家信息</legend>
+                    <dl>
+                        <dt>
+                            <label>
+                                全水分(厂家)：
+                            </label>
+                        </dt>
+                        <dd>
+                            @item.CC_FAWcomponent
+                        </dd>
+
+                    </dl>
+                    <dl>
+                        <dt>
+                            <label>
+                                分析基水分(厂家)：
+                            </label>
+                        </dt>
+                        <dd>
+                            @item.CC_FAnalyseSW
+                        </dd>
+
+                    </dl>
+                    <dl>
+                        <dt>
+                            <label>
+                                灰分：
+                            </label>
+                        </dt>
+                        <dd>
+                            @item.CC_FGreyC
+                        </dd>
+
+                    </dl>
+                    <dl>
+                        <dt>
+                            <label>
+                                挥发分：
+                            </label>
+                        </dt>
+                        <dd>
+                            @item.CC_FVolatilizeC
+                        </dd>
+
+                    </dl>
+                    <dl>
+                        <dt>
+                            <label>
+                                固定碳：
+                            </label>
+                        </dt>
+                        <dd>
+                            @item.CC_FCarbon
+                        </dd>
+
+                    </dl>
+                    <dl>
+                        <dt>
+                            <label>
+                                全磷：
+                            </label>
+                        </dt>
+                        <dd>
+                            @item.CC_FAphosphor
+                        </dd>
+
+                    </dl>
+                    <dl>
+                        <dt>
+                            <label>
+                                磷渣特征：
+                            </label>
+                        </dt>
+                        <dd>
+                            @item.CC_FPhosphorS
+                        </dd>
+
+                    </dl>
+                    <dl>
+                        <dt>
+                            <label>
+                                干基高位发热量：
+                            </label>
+                        </dt>
+                        <dd>
+                            @item.CC_FHcalorific
+                        </dd>
+                    </dl>
+
+
+                    <dl>
+                        <dt>
+                            <label>
+                                收到基地位发热量：
+                            </label>
+                        </dt>
+                        <dd>
+                            @item.CC_FRLcalorific
+                        </dd>
+                    </dl>
+
+                    <dl>
+                        <dt>
+                            <label>
+                                厂家名称：
+                            </label>
+                        </dt>
+                        <dd>
+                            @item.CC_FName
+                        </dd>
+                    </dl>
+
+                </fieldset>
+            }
+        </div>
+        <div class="formBar">
+            <ul>
+                <li>
+                    <div class="button">
+                        <div class="buttonContent">
+                            <button type="button" class="close">
+                                关闭
+                            </button>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
+
+
+
+

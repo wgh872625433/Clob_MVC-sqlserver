@@ -1,0 +1,142 @@
+﻿
+@{
+    Layout = null;
+}
+
+@model List<ClobDM_Model.Water_solid>
+<form id="pagerForm" method="post" action="@Url.Action("Index")">
+    <input type="hidden" name="pageNum" value="@ViewData["pageIndex"]" />
+    <input type="hidden" name="numPerPage" value="@ViewData["pageSize"]" />
+    <input name="S_username" id="S_username" type="hidden" value="@ViewData["S_username"]" />
+</form>
+<div class="pageHeader">
+    <form onsubmit="return navTabSearch(this);" action="@Url.Action("Index")" method="post">
+        <div class="searchBar">
+            <ul class="searchContent">
+                <li>
+                    <label>
+                        检测日期：
+                    </label>
+                    <input name="WS_CheckTime" type="text" value="@ViewData["WS_CheckTime"]" />
+                </li>
+                <li>
+                    <label>
+                        生产厂家：
+                    </label>
+                    <input name="WS_FName" type="text" value="@ViewData["WS_FName"]" />
+                </li>
+            </ul>
+            <div class="subBar">
+                <ul>
+                    <li>
+                        <div class="buttonActive">
+                            <div class="buttonContent">
+                                <button type="submit">
+                                    检索
+                                </button>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="pageContent">
+    <div class="panelBar">
+        <ul class="toolBar">
+            <li><a class="add" href="/Water_solid/Add" mask="false" width="1000" height="550" target="dialog" rel="AddWater_solid"><span>添加水性固化剂</span></a></li>
+            @*<li>
+                <a class="icon" onclick="userinfo.ExportExcel()"><span>导出查询数据</span></a>
+            </li>*@
+          
+
+            <li class="line">line</li>
+        </ul>
+    </div>
+    <table class="table" width="100%" layouth="138">
+        <thead>
+            <tr>
+                <th width="40">
+                    <input type="checkbox" group="ids" class="checkboxCtrl">
+                </th>
+                <th>
+                    编号
+                </th>
+                <th>
+                    检测日期
+                </th>
+                <th>
+                    进货数量
+                </th>
+                <th>
+                    抽测数量
+                </th>
+                <th>
+                    坩埚重
+                </th>
+                <th>
+                    拱前总重
+                </th>
+                <th>
+                    拱后总重
+                </th>
+
+                <th>
+                    检测员
+                </th>
+                <th>
+                    生产厂家
+                </th>
+                <th>
+                    创建时间
+                </th>
+                <th width="80">
+                    操作
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        <input name="ids" type="checkbox" value="@item.ID" />
+                    </td>
+                    <td>@item.ID</td>
+                    <td>@item.WS_CheckTime</td>
+                    <td>@item.WS_InGoodNums</td>
+                    <td>@item.WS_CheckGoodNums</td>
+                    <td>@item.WS_CrucibleW</td>
+                    <td>@item.WS_ArchFTW1</td>
+                    <td>@item.WS_ArchFTW2</td>
+                    <td>@item.WS_FCheckUID</td>
+                    <td>@item.WS_FName</td>
+                    <td>@item.CreateTime</td>
+                    <td width="80">
+                        <a title="查看" target="dialog" href="/Water_solid/Detail?OID=@item.ID" mask="false" width="1000" height="550" class="btnInfo">详情</a>
+                        <a title="编辑" target="dialog" href="/Water_solid/Add?OID=@item.ID" class="btnEdit" mask="false" width="1000" height="550"> 编辑</a>
+                    </td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+    <div class="panelBar">
+        <div class="pages">
+            <span>每页20条，共 @ViewData["recordCount"] 条</span>
+        </div>
+        <div class="pagination" targettype="navTab" totalcount="@ViewData["recordCount"]" numperpage="@ViewData["pageSize"]" pagenumshown="10"
+             currentpage="@ViewData["pageIndex"]">
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    var Water_solid = {
+        ExportExcel: function () {
+            var S_username = $("#S_username").val();
+            var S_realName = $("#S_realName").val();
+            window.location.href = "/Water_solid/Export/?S_username=" + S_username + "&S_realName=" + S_realName + "";
+        }
+    }
+</script>

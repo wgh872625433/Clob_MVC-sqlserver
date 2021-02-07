@@ -1,0 +1,119 @@
+﻿
+@{
+    Layout = null;
+}
+
+@model List<ClobDM_Model.sys_role>
+<form id="pagerForm" method="post" action="@Url.Action("Index")">
+    <input type="hidden" name="pageNum" value="@ViewData["pageIndex"]" />
+    <input type="hidden" name="numPerPage" value="@ViewData["pageSize"]" />
+    <input name="username" type="hidden" value="@ViewData["S_name"]" />
+</form>
+<div class="pageHeader">
+    <form onsubmit="return navTabSearch(this);" action="@Url.Action("Index")" method="post">
+        <div class="searchBar">
+            <ul class="searchContent">
+                <li>
+                    <label>
+                        角色名称：
+                    </label>
+                    <input name="S_name" type="text" value="@ViewData["S_name"]" />
+                </li>
+            </ul>
+            <div class="subBar">
+                <ul>
+                    <li>
+                        <div class="buttonActive">
+                            <div class="buttonContent">
+                                <button type="submit">
+                                    检索
+                                </button>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="pageContent">
+    <div class="panelBar">
+        <ul class="toolBar">
+            <li><a class="add" href="/sys_role/Add" mask="false" width="800" height="250" target="dialog" rel="Addsys_role"><span>添加角色</span></a></li>
+            <li>
+                <a class="delete" href="/sys_role/DeleteRoleInfoByIds" rel="ids" target="selectedTodo" posttype="string"
+                   title="确定要删除吗?"><span>批量删除</span></a>
+            </li>
+            <li>
+                <a class="delete" href="/sys_role/RecoverRoleInfoByIds" rel="ids" target="selectedTodo" posttype="string"
+                   title="确定要启用吗?"><span>批量启用</span></a>
+            </li>
+            <li class="line">line</li>
+        </ul>
+    </div>
+    <table class="table" width="100%" layouth="138">
+        <thead>
+            <tr>
+                <th width="40">
+                    <input type="checkbox" group="ids" class="checkboxCtrl">
+                </th>
+                <th>
+                    编号
+                </th>
+                <th>
+                    角色名称
+                </th>
+                <th>
+                    状态
+                </th>
+                <th>
+                    创建时间
+                </th>
+                <th width="120">
+                    操作
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td width="40">
+                        <input name="ids" type="checkbox" value="@item.ID" />
+                    </td>
+                    <td>@item.ID</td>
+                    <td>@item.S_name</td>
+                    <td>@(item.S_state == 0 ? "正常" : "删除")</td>
+                    <td>@item.CreateTime</td>
+                    <td width="120">
+                        <a title="查看" target="dialog" href="/sys_role/UserInfoDetail?OID=@item.ID" mask="false" width="800" height="250" class="btnInfo">详情</a>
+                        <a title="编辑" target="dialog" href="/sys_role/AddRoleInfo?OID=@item.ID" class="btnEdit" mask="false" width="800" height="250"> 编辑</a>
+                        @if (item.S_state == 0)
+                        {
+                            <a title="确定要删除吗?" target="ajaxTodo" href="/sys_role/DeleteSysRole?OID=@item.ID" class="btnDel">
+                                删除
+                            </a>
+                        }
+                        else
+                        {
+                            <a title="确定要启用吗?" target="ajaxTodo" href="/sys_role/RecoverSysRole?OID=@item.ID" class="btnSelect">
+                                启用
+                            </a>
+                        }
+                        <a title="角色权限" target="dialog" href="/sys_role/sys_roleInMenu?OID=@item.ID" class="btnView" mask="false" width="800" height="250"> 编辑</a>
+
+                    </td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+    <div class="panelBar">
+        <div class="pages">
+            <span>每页20条，共 @ViewData["recordCount"] 条</span>
+        </div>
+        <div class="pagination" targettype="navTab" totalcount="@ViewData["recordCount"]" numperpage="@ViewData["pageSize"]" pagenumshown="10"
+             currentpage="@ViewData["pageIndex"]">
+        </div>
+    </div>
+</div>

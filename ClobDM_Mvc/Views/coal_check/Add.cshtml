@@ -1,0 +1,243 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>新增煤炭</title>
+</head>
+<body>
+    <form method="post" class="pageForm required-validate"
+          action="/coal_check/CheckAdd" onsubmit="return validateCallback(this,dialogAjaxDone);">
+        <input type="hidden" name="id" value="@ViewData["OID"]" />
+        <input type="hidden" name="CreateTime" value="@ViewData["CreateTime"]" />
+        <div class="pageContent">
+            <div class="pageFormContent" layouth="54">
+                <fieldset>
+                    <legend>基本信息</legend>
+
+                    <p class="notfirst">
+                        <label>
+                            日期：
+                        </label>
+                        <input name="CC_CheckTime" id="CC_CheckTime" value="@ViewData["CC_CheckTime"]"
+                               class="date textInput readonly required" readonly="readonly" type="text" size="30"
+                               title="请输入日期" />
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            全水分：
+                        </label>
+                        <input name="CC_AWcomponent" id="CC_AWcomponent" value="@ViewData["CC_AWcomponent"]" class="required number" type="text" size="30"
+                               title="请输入全水分" />
+
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            分析基水分：
+                        </label>
+                        <input name="CC_AnalyseSW" id="CC_AnalyseSW" value="@ViewData["CC_AnalyseSW"]" class="required number" type="text" size="30"
+                               title="请输入分析基水分" />
+
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            灰分：
+                        </label>
+                        <input name="CC_GreyC" id="CC_GreyC" value="@ViewData["CC_GreyC"]" class="required number" type="text" size="30"
+                               title="请输入灰分" />
+
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            挥发分：
+                        </label>
+                        <input name="CC_VolatilizeC" id="CC_VolatilizeC" value="@ViewData["CC_VolatilizeC"]" class="required number" type="text" size="30"
+                               title="请输入挥发分" />
+
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            固定碳：
+                        </label>
+                        <input name="CC_Carbon" id="CC_Carbon" value="@ViewData["CC_Carbon"]" class="required number" type="text" size="30"
+                               title="请输入固定碳" />
+
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            全磷：
+                        </label>
+                        <input name="CC_Aphosphor" id="CC_Aphosphor" value="@ViewData["CC_Aphosphor"]" class="required number" type="text" size="30"
+                               title="请输入全磷" />
+
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            磷渣特征：
+                        </label>
+                        <input name="CC_PhosphorS" id="CC_PhosphorS" value="@ViewData["CC_PhosphorS"]" class="required number" type="text" size="30"
+                               title="请输入磷渣特征" />
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            干基高位发热量：
+                        </label>
+                        <input name="CC_Hcalorific" id="CC_Hcalorific" value="@ViewData["CC_Hcalorific"]" class="required number" type="text" size="30"
+                               title="请输入干基高位发热量" />
+
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            收到基低位发热量：
+                        </label>
+                        <input name="CC_RLcalorific" id="CC_RLcalorific" value="@ViewData["CC_RLcalorific"]" class="required number" type="text" size="30"
+                               title="请输入收到基低位发热量" />
+
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            测试人：
+                        </label>
+                        <input name="CC_CheckUID" id="CC_CheckUID" value="@ViewData["CC_CheckUID"]" class="required" type="text" size="30"
+                               title="请输入测试人" />
+
+                    </p>
+
+                    <p class="notfirst">
+                        <label>
+                            备注：
+                        </label>
+                        <input name="CC_Remark" id="CC_Remark" value="@ViewData["CC_Remark"]" class="required" type="text" size="30"
+                               title="请输入备注" />
+
+                    </p>
+
+                    <p class="notfirst">
+                        <label>
+                            合格与否：
+                        </label>
+                        <input name="CC_IsPass" id="CC_IsPass" value="@ViewData["CC_IsPass"]" class="required" type="text" size="30"
+                               title="请输入合格与否" />
+
+                    </p>
+
+                    <p class="notfirst">
+                        <label>
+                            各月份合格率情况：
+                        </label>
+                        <input name="CC_IsPassMsg" id="CC_IsPassMsg" value="@ViewData["CC_IsPassMsg"]" class="required" type="text" size="30"
+                               title="请输入各月份合格率情况" />
+
+                    </p>
+                </fieldset>
+                <fieldset>
+                    <legend>厂家信息</legend>
+                    <p class="notfirst">
+                        <label>
+                            全水分：
+                        </label>
+                        <input name="CC_FAWcomponent" id="CC_FAWcomponent" value="@ViewData["CC_FAWcomponent"]" class="required number" type="text" size="30"
+                               title="请输入全水分" />
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            分析基水分：
+                        </label>
+                        <input name="CC_FAnalyseSW" id="CC_FAnalyseSW" value="@ViewData["CC_FAnalyseSW"]" class="required number" type="text" size="30"
+                               title="请输入分析基水分" />
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            灰分：
+                        </label>
+                        <input name="CC_FGreyC" id="CC_FGreyC" value="@ViewData["CC_FGreyC"]" class="required number" type="text" size="30"
+                               title="请输入灰分" />
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            挥发分：
+                        </label>
+                        <input name="CC_FVolatilizeC" id="CC_FVolatilizeC" value="@ViewData["CC_FVolatilizeC"]"
+                               class="required number" type="text" size="30"
+                               title="请输入挥发分" />
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            固定碳：
+                        </label>
+                        <input name="CC_FCarbon" id="CC_FCarbon" value="@ViewData["CC_FCarbon"]" class="required number" type="text" size="30"
+                               title="请输入固定碳" />
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            全磷：
+                        </label>
+                        <input name="CC_FAphosphor" id="CC_FAphosphor" value="@ViewData["CC_FAphosphor"]" class="required number" type="text" size="30"
+                               title="请输入全磷" />
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            磷渣特征：
+                        </label>
+                        <input name="CC_FPhosphorS" id="CC_FPhosphorS" value="@ViewData["CC_FPhosphorS"]" class="required number" type="text" size="30"
+                               title="请输入磷渣特征" />
+                    </p>
+                    <p class="notfirst">
+                        <label>
+                            干基高位发热量：
+                        </label>
+                        <input name="CC_FHcalorific" id="CC_FHcalorific" value="@ViewData["CC_FHcalorific"]" class="required number" type="text" size="30"
+                               title="请输入干基高位发热量" />
+                    </p>
+
+                    <p class="notfirst">
+                        <label>
+                            收到基地位发热量：
+                        </label>
+                        <input name="CC_FRLcalorific" id="CC_FRLcalorific" value="@ViewData["CC_FRLcalorific"]" class="required number" type="text" size="30"
+                               title="请输入收到基地位发热量" />
+                    </p>
+
+                    <p class="notfirst">
+                        <label>
+                            厂家名称：
+                        </label>
+                        <input name="CC_FName" id="CC_FName" value="@ViewData["CC_FName"]" class="required" type="text" size="30"
+                               title="请输入厂家名称" />
+                    </p>
+                </fieldset>
+            </div>
+            <div class="formBar">
+                <ul>
+                    <li>
+                        <span id="userInfoComplete" style="color: Red; visibility: hidden; height: 30px;
+                    line-height: 30px;"></span>
+                    </li>
+                    <li>
+                        <div class="buttonActive">
+                            <div class="buttonContent">
+                                <button type="submit" id="btnSubmit">
+                                    @(ViewData["OID"].ToString() == "0" ? "新增" : "提交")
+                                </button>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="button">
+                            <div class="buttonContent">
+                                <button type="button" class="close">
+                                    取消
+                                </button>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </form>
+</body>
+</html>
+

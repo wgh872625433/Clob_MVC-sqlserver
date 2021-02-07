@@ -1,0 +1,274 @@
+﻿
+@{
+    Layout = null;
+}
+
+@model List<ClobDM_Model.Starch_check>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <div class="pageContent">
+        <div class="pageFormContent" layouth="56">
+@foreach (var item in Model)
+{
+            <fieldset>
+                <legend>基本信息</legend>
+              
+                    <dl>
+                        <dt>
+                            <label>
+                                检测日期：
+                            </label>
+                        </dt>
+                        <dd>
+                            @item.SC_CheckTime
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>
+                            <label>
+                                器皿：
+                            </label>
+                        </dt>
+                        <dd>
+                            @item.SC_ware
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>
+                            <label>
+                                拱前：
+                            </label>
+                        </dt>
+                        <dd>
+                            @item.SC_ArchFw
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>
+                            <label>
+                                拱后总：
+                            </label>
+                        </dt>
+                        <dd>
+                            @(item.SC_ArchAw)
+                        </dd>
+
+                    </dl>
+
+                <dl>
+                    <dt>
+                        <label>
+                            水分含量：
+                        </label>
+                    </dt>
+                    <dd>
+                        @(item.SC_Wcontent)
+                    </dd>
+
+                </dl>
+                <dl>
+                    <dt>
+                        <label>
+                            水分含量平均值：
+                        </label>
+                    </dt>
+                    <dd>
+                        @(item.SC_WcontentAvg)
+                    </dd>
+
+                </dl>
+
+                <dl>
+                    <dt>
+                        <label>
+                            初始糊化温度：
+                        </label>
+                    </dt>
+                    <dd>
+                        @(item.SC_SgelationT)
+                    </dd>
+
+                </dl>
+
+                <dl>
+                    <dt>
+                        <label>
+                            初始糊化粘度：
+                        </label>
+                    </dt>
+                    <dd>
+                        @(item.SC_SgelationS)
+                    </dd>
+
+                </dl>
+
+                <dl>
+                    <dt>
+                        <label>
+                            糊化峰值温度：
+                        </label>
+                    </dt>
+                    <dd>
+                        @(item.SC_gelationT)
+                    </dd>
+
+                </dl>
+
+                <dl>
+                    <dt>
+                        <label>
+                            糊化峰值粘度：
+                        </label>
+                    </dt>
+                    <dd>
+                        @(item.SC_gelationS)
+                    </dd>
+
+                </dl>
+
+
+                    <dl>
+                        <dt>
+                            <label>
+                                创建时间：
+                            </label>
+                        </dt>
+                        <dd>
+                            @item.CreateTime.ToString("yyyy-MM-dd HH:mm:ss")
+                        </dd>
+                    </dl>
+               
+            </fieldset>
+            <fieldset>
+                <legend>厂家信息</legend>
+                <dl>
+                    <dt>
+                        <label>
+                            水分含量：
+                        </label>
+                    </dt>
+                    <dd>
+                        @(item.SC_FWcontent)
+                    </dd>
+
+                </dl>
+                <dl>
+                    <dt>
+                        <label>
+                            生产厂家：
+                        </label>
+                    </dt>
+                    <dd>
+                        @(item.SC_FName)
+                    </dd>
+
+                </dl>
+                <dl>
+                    <dt>
+                        <label>
+                            批次号：
+                        </label>
+                    </dt>
+                    <dd>
+                        @(item.SC_Fcode)
+                    </dd>
+
+                </dl>
+                <dl>
+                    <dt>
+                        <label>
+                            进货数量吨：
+                        </label>
+                    </dt>
+                    <dd>
+                        @(item.SC_FInGoodNums)
+                    </dd>
+
+                </dl>
+
+
+                <dl>
+                    <dt>
+                        <label>
+                            抽测数量包：
+                        </label>
+                    </dt>
+                    <dd>
+                        @(item.SC_FCheckGoodNums)
+                    </dd>
+
+                </dl>
+
+                <dl>
+                    <dt>
+                        <label>
+                            质量情况：
+                        </label>
+                    </dt>
+                    <dd>
+                        @(item.SC_FQualityMsg)
+                    </dd>
+
+                </dl>
+
+                <dl>
+                    <dt>
+                        <label>
+                            测试人：
+                        </label>
+                    </dt>
+                    <dd>
+                        @(item.SC_FCheckUID)
+                    </dd>
+
+                </dl>
+
+                <dl>
+                    <dt>
+                        <label>
+                            备注：
+                        </label>
+                    </dt>
+                    <dd>
+                        @(item.SC_FRemark)
+                    </dd>
+
+                </dl>
+
+
+                <dl>
+                    <dt>
+                        <label>
+                            各月份合格率情况：
+                        </label>
+                    </dt>
+                    <dd>
+                        @(item.SC_FIsPassMsg)
+                    </dd>
+
+                </dl>
+
+              </fieldset>
+                }
+        </div>
+        <div class="formBar">
+            <ul>
+                <li>
+                    <div class="button">
+                        <div class="buttonContent">
+                            <button type="button" class="close">
+                                关闭
+                            </button>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
+

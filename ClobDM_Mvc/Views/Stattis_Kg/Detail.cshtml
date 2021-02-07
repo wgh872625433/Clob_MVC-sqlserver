@@ -1,0 +1,373 @@
+﻿
+@{
+    Layout = null;
+}
+
+@model List<ClobDM_Model.Stattis_Kg>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <div class="pageContent">
+        <div class="pageFormContent" layouth="56">
+            @foreach (var item in Model)
+            {
+                <fieldset>
+                    <legend>基本信息</legend>
+
+                    <dl>
+                        <dt>
+                            <label>
+                                生产日期：
+                            </label>
+                        </dt>
+                        <dd>
+                            @Convert.ToDateTime(item.sk_addTime).ToString("yyyy-MM-dd")
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>
+                            <label>
+                                产品品名：
+                            </label>
+                        </dt>
+                        <dd>
+                            @item.sk_name
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>
+                            <label>
+                                卷重：
+                            </label>
+                        </dt>
+                        <dd>
+                            @item.sk_juanW
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>
+                            <label>
+                                卷号：
+                            </label>
+                        </dt>
+                        <dd>
+                            @(item.sk_juanH)
+                        </dd>
+
+                    </dl>
+                    <dl>
+                        <dt>
+                            <label>
+                                卷长：
+                            </label>
+                        </dt>
+                        <dd>
+                            @(item.sk_juanC)
+                        </dd>
+
+                    </dl>
+                    <dl>
+                        <dt>
+                            <label>
+                                幅宽：
+                            </label>
+                        </dt>
+                        <dd>
+                            @(item.sk_rangw)
+                        </dd>
+
+                    </dl>
+                    <dl>
+                        <dt>
+                            <label>
+                                幅数：
+                            </label>
+                        </dt>
+                        <dd>
+                            @(item.sk_rangnum)
+                        </dd>
+
+                    </dl>
+                    <dl>
+                        <dt>
+                            <label>
+                                实验克重：
+                            </label>
+                        </dt>
+                        <dd>
+                            @(item.sk_clobkgw)
+                        </dd>
+
+                    </dl>
+                    <dl>
+                        <dt>
+                            <label>
+                                克重均值：
+                            </label>
+                        </dt>
+                        <dd>
+                            @(item.sk_kgavg)
+                        </dd>
+
+                    </dl>
+                    <dl>
+                        <dt>
+                            <label>
+                                克度cv：
+                            </label>
+                        </dt>
+                        <dd>
+                            @(item.sk_kgCV)
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>
+                            <label>
+                                克重厚度：
+                            </label>
+                        </dt>
+                        <dd>
+                            @(item.sk_kghd)
+                        </dd>
+                    </dl>
+
+
+                    <dl>
+                        <dt>
+                            <label>
+                                厚度cv：
+                            </label>
+                        </dt>
+                        <dd>
+                            @(item.sk_hdCV)
+                        </dd>
+                    </dl>
+
+
+                    <dl>
+                        <dt>
+                            <label>
+                                厚度最小：
+                            </label>
+                        </dt>
+                        <dd>
+                            @(item.sk_hdMin)
+                        </dd>
+                    </dl>
+
+                    <dl>
+                        <dt>
+                            <label>
+                                厚度最大：
+                            </label>
+                        </dt>
+                        <dd>
+                            @(item.sk_hdMax)
+                        </dd>
+                    </dl>
+
+
+
+                    <dl>
+                        <dt>
+                            <label>
+                                创建时间：
+                            </label>
+                        </dt>
+                        <dd>
+                            @item.CreateTime.ToString("yyyy-MM-dd HH:mm:ss")
+                        </dd>
+                    </dl>
+                </fieldset>
+                
+                 <fieldset>
+                    <legend>克重信息</legend>
+                     <dl>
+                         <dt>
+                             <label>
+                                 克重1：
+                             </label>
+                         </dt>
+                         <dd>
+                             @item.sk_kg1
+                         </dd>
+                     </dl>
+                     <dl>
+                         <dt>
+                             <label>
+                                 克重2：
+                             </label>
+                         </dt>
+                         <dd>
+                             @item.sk_kg2
+                         </dd>
+                     </dl>
+
+                     <dl>
+                         <dt>
+                             <label>
+                                 克重3：
+                             </label>
+                         </dt>
+                         <dd>
+                             @item.sk_kg3
+                         </dd>
+                     </dl>
+
+                     <dl>
+                         <dt>
+                             <label>
+                                 克重4：
+                             </label>
+                         </dt>
+                         <dd>
+                             @item.sk_kg4
+                         </dd>
+                     </dl>
+
+                     <dl>
+                         <dt>
+                             <label>
+                                 克重5：
+                             </label>
+                         </dt>
+                         <dd>
+                             @item.sk_kg5
+                         </dd>
+                     </dl>
+
+                 </fieldset>
+                
+                <fieldset>
+                    <legend>厚度信息</legend>
+                    <dl>
+                        <dt>
+                            <label>
+                                厚度1：
+                            </label>
+                        </dt>
+                        <dd>
+                            @item.sk_hd1
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>
+                            <label>
+                                厚度2：
+                            </label>
+                        </dt>
+                        <dd>
+                            @item.sk_hd2
+                        </dd>
+                    </dl>
+
+                    <dl>
+                        <dt>
+                            <label>
+                                厚度3：
+                            </label>
+                        </dt>
+                        <dd>
+                            @item.sk_hd3
+                        </dd>
+                    </dl>
+
+                    <dl>
+                        <dt>
+                            <label>
+                                厚度4：
+                            </label>
+                        </dt>
+                        <dd>
+                            @item.sk_hd4
+                        </dd>
+                    </dl>
+
+                    <dl>
+                        <dt>
+                            <label>
+                                厚度5：
+                            </label>
+                        </dt>
+                        <dd>
+                            @item.sk_hd5
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>
+                            <label>
+                                厚度6：
+                            </label>
+                        </dt>
+                        <dd>
+                            @item.sk_hd6
+                        </dd>
+                    </dl>
+
+                    <dl>
+                        <dt>
+                            <label>
+                                厚度7：
+                            </label>
+                        </dt>
+                        <dd>
+                            @item.sk_hd7
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>
+                            <label>
+                                厚度8：
+                            </label>
+                        </dt>
+                        <dd>
+                            @item.sk_hd8
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>
+                            <label>
+                                厚度9：
+                            </label>
+                        </dt>
+                        <dd>
+                            @item.sk_hd9
+                        </dd>
+                    </dl>
+
+                    <dl>
+                        <dt>
+                            <label>
+                                厚度10：
+                            </label>
+                        </dt>
+                        <dd>
+                            @item.sk_hd10
+                        </dd>
+                    </dl>
+
+
+                 </fieldset>
+
+            }
+
+        </div>
+        <div class="formBar">
+            <ul>
+                <li>
+                    <div class="button">
+                        <div class="buttonContent">
+                            <button type="button" class="close">
+                                关闭
+                            </button>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
